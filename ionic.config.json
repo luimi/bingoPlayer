@@ -1,0 +1,7 @@
+{
+  "name": "bingoPlayer",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
