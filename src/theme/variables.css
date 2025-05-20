@@ -1,2 +1,50 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+
+a {
+    all: unset;
+}
+
+table, td {
+  border: 1px solid;
+}
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: center;
+  background-color: white;
+}
+.selected {
+  background-color: var(--ion-color-danger);
+  color: white;
+}
+.active {
+  background-color: var(--ion-color-tertiary);
+  color: white;
+}
+#sketch {
+  font-size: 27px;
+}
+#sketch td {
+  width: 60px;
+  height: 60px;
+}
+#modes td {
+  padding: 5px;
+}
+#modes td span {
+  display: none;
+}
+#card {
+  font-size: 10px;
+}
+#card td {
+  width: 17px;
+  height: 17px;
+}
+#board {
+  font-size: 10px;
+}
+.w100 {
+    width: 100%;
+}

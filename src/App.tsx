@@ -32,9 +32,14 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { setBingoContext } from './utils/BingoController';
+import { BingoContext, useBingoContext } from './contexts/BingoContext';
+import Numbers from './pages/Numbers';
+import NewSketch from './pages/NewSketch';
+import Card from './pages/Card';
 
 setupIonicReact();
-
+setBingoContext(BingoContext);
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
@@ -42,6 +47,14 @@ const App: React.FC = () => (
         <Route exact path="/home">
           <Home />
         </Route>
+        <Route exact path="/numbers">
+          <Numbers />
+        </Route>
+        <Route exact path="/new-sketch">
+          <NewSketch />
+        </Route>
+        <Route exact path="/card/:index" component={Card}/>
+        <Route exact path="/card" component={Card}/>
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
