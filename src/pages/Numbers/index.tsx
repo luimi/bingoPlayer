@@ -1,15 +1,17 @@
-import { IonCard, IonCardHeader, IonCardTitle, IonCol, IonContent, IonFab, IonFabButton, IonFooter, IonGrid, IonIcon, IonPage, IonRow, IonTitle, IonToolbar, useIonRouter } from "@ionic/react";
+import { IonCard, IonCardHeader, IonCardTitle, IonCol, IonContent, IonFab, IonFabButton, IonFooter, IonGrid, IonIcon, IonLabel, IonPage, IonRow, IonTitle, IonToolbar, useIonRouter } from "@ionic/react";
 import { arrowBack } from "ionicons/icons";
 import { useBingoContext } from "../../contexts/BingoContext";
 import './styles.scss';
 import { setNumber, unsetNumber } from "../../utils/BingoController";
 import { Link } from "react-router-dom";
+import GameModeMini from "../../components/GameModeMini";
 
 interface ComponentProps { }
 const Numbers: React.FC<ComponentProps> = () => {
    const router = useIonRouter();
-   const { cards, numbers, order }: { cards: Array<Array<Array<number>>>, numbers: Array<number>, order: any } = useBingoContext();
+   const { cards, numbers, order, gameMode, gameModes}: any = useBingoContext();
    const numberArray = Array.from({ length: 75 }, (_, i) => i + 1);
+   const currentGameMode = gameModes.find((mode: any) => mode.name === gameMode);
    return (
       <IonPage>
          <IonContent>
@@ -43,14 +45,18 @@ const Numbers: React.FC<ComponentProps> = () => {
          <IonFooter>
             <IonGrid style={{overflow: "scroll"}}>
                <IonRow className="ion-nowrap">
+                  <IonCol>
+                     <IonLabel className="ion-text-center">{currentGameMode.title}</IonLabel>
+                     <GameModeMini sketch={currentGameMode.sketch}/>
+                  </IonCol>
                   {order.map((index: number) => (
                      <IonCol size="auto" className="ion-text-center" key={index}>
                         <Link to={`/card/${index}`}>
                            <table id="card">
                               <tbody>
-                                 {cards[index].map((row, rIndex) => (
+                                 {cards[index].map((row: any, rIndex: number) => (
                                     <tr key={`row${rIndex}`}>
-                                       {row.map((cell, cIndex) => (
+                                       {row.map((cell: any, cIndex: number) => (
                                           <td key={`cell${rIndex}${cIndex}`} className={`${numbers.includes(cell) ? 'selected' : ''}`}>{cell !== 0 ? cell : ''}</td>
                                        ))}
                                     </tr>
