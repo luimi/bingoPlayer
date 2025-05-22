@@ -12,6 +12,21 @@ const NewSketch: React.FC<ComponentProps> = () => {
         sketch: [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
     })
     const [presentAlert] = useIonAlert();
+
+    const save = () => {
+        if (pattern.name.trim() === '') {
+            presentAlert({
+                header: "Error",
+                message: "Debes ingresar un nombre"
+            })
+            return;
+        }
+        if (setGameMode(pattern)) router.goBack()
+        else presentAlert({
+            header: "Error",
+            message: "Existe ya un modo de juego con este nombre"
+        })
+    }
     return (
         <IonPage>
             <IonContent className="ion-padding">
@@ -57,13 +72,7 @@ const NewSketch: React.FC<ComponentProps> = () => {
                         </IonCol>
                     </IonRow>
                 </IonGrid>
-                <IonButton expand="block" onClick={() => {
-                    if (setGameMode(pattern)) router.goBack()
-                    else presentAlert({
-                        header: "Error",
-                        message: "Existe ya un modo de juego con este nombre"
-                    })
-                }}>Guardar</IonButton>
+                <IonButton expand="block" onClick={save}>Guardar</IonButton>
             </IonContent>
         </IonPage>
     );
