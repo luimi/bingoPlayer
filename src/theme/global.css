@@ -16,6 +16,9 @@
   /* Subtle border color */
   --filled-cell-color: #7b62a6;
   /* A slightly different purple for filled cells in patterns */
+  --ion-color-warning: var(--accent-color);
+  --ion-color-danger: #d32f2f;
+  --ion-color-primary: #03a9f4;
 }
 
 ion-content {
@@ -37,9 +40,6 @@ ion-footer {
   background: var(--card-bg-color);
 }
 
-legend {
-  background-color: var(--primary-bg-color);
-}
 
 /*
 ---- SECTION WRAPPER
@@ -582,6 +582,8 @@ legend {
   box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.5);
 }
 
+
+
 /* Responsive adjustments */
 @media (max-width: 500px) {
   fieldset {
@@ -722,7 +724,7 @@ legend {
   }
 
   .mini-bingo-card .cell {
-    padding: 3px 0;
+    padding: 0;
     font-size: 0.6em;
     min-height: 16px;
     border-radius: 3px;
@@ -765,6 +767,7 @@ legend {
     padding: 10px;
     border-radius: 15px;
     gap: 10px;
+    margin: 10px;
   }
 
   .number-group .header {

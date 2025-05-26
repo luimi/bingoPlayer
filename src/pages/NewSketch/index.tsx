@@ -1,4 +1,4 @@
-import { IonButton, IonCard, IonCardContent, IonCol, IonContent, IonFab, IonFabButton, IonGrid, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonRow, useIonAlert, useIonRouter } from "@ionic/react";
+import { IonButton, IonCard, IonCardContent, IonCol, IonContent, IonFab, IonFabButton, IonGrid, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonRow, useIonAlert, useIonRouter, useIonToast } from "@ionic/react";
 import { arrowBack } from "ionicons/icons";
 import React from "react";
 import { setGameMode } from "../../utils/BingoController";
@@ -14,21 +14,25 @@ const NewSketch: React.FC<ComponentProps> = () => {
         title: '',
         sketch: [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
     })
-    const [presentAlert] = useIonAlert();
+    const [present] = useIonToast();
 
     const save = () => {
         if (pattern.name.trim() === '') {
-            presentAlert({
-                header: "Error",
-                message: "Debes ingresar un nombre"
+            present({
+                message: "Debes ingresar un nombre",
+                duration: 3000,
+                position: 'top',
+                color: 'danger',
             })
             return;
         }
         if (setGameMode(pattern)) router.goBack()
-        else presentAlert({
-            header: "Error",
-            message: "Existe ya un modo de juego con este nombre"
-        })
+        else present({
+                message:  "Existe ya un modo de juego con este nombre",
+                duration: 3000,
+                position: 'top',
+                color: 'danger',
+            })
     }
     return (
         <IonPage>
@@ -39,11 +43,11 @@ const NewSketch: React.FC<ComponentProps> = () => {
                     </IonFabButton>
                 </IonFab>
                 <h1>Nuevo Modo De Juego</h1>
-                <InputGroup title="Nombre" onChange={(e: any) => setPatern({ ...pattern, name: e.target.value + '', title: e.target.value + '' })}/>
+                <InputGroup title="Nombre" onChange={(e: any) => setPatern({ ...pattern, name: e.target.value + '', title: e.target.value + '' })} />
                 <h2>Casillas</h2>
-                <Sketch pattern={pattern} setPatern={setPatern}/>
+                <Sketch pattern={pattern} setPatern={setPatern} />
                 <ButtonAccent text="Guardar" action={save} />
-                
+
             </IonContent>
         </IonPage>
     );

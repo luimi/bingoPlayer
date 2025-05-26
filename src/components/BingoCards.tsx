@@ -1,4 +1,4 @@
-import { IonCol, IonGrid, IonIcon, IonRow, IonSpinner, useIonAlert, useIonRouter } from "@ionic/react";
+import { IonCol, IonGrid, IonIcon, IonRow, IonSpinner, useIonAlert, useIonRouter, useIonToast } from "@ionic/react";
 import { useBingoContext } from "../contexts/BingoContext";
 import { Link } from "react-router-dom";
 import { add, addCircleOutline, camera } from "ionicons/icons";
@@ -11,7 +11,7 @@ import ItemNew from "./ItemNew";
 interface ComponentProps { }
 const BingoCards: React.FC<ComponentProps> = () => {
     const { cards, numbers, order }: { cards: Array<Array<Array<number>>>, numbers: Array<number>, order: any } = useBingoContext();
-    const [presentAlert] = useIonAlert();
+    const [present] = useIonToast();
     const inputFileRef = useRef<HTMLInputElement>(null)
     const [loading, setLoading] = useState(false)
     const router = useIonRouter();
@@ -22,9 +22,11 @@ const BingoCards: React.FC<ComponentProps> = () => {
         if (newCards && newCards.length > 0) {
             setCards(newCards)
         } else {
-            presentAlert({
-                header: 'Error',
-                message: 'No se pudo procesar la informacion de los cartones'
+            present({
+                message: 'No se pudo procesar la informacion de los cartones',
+                duration: 3000,
+                position: 'top',
+                color: 'danger',
             })
         }
     }

@@ -21,7 +21,7 @@ const GameModes: React.FC<ComponentProps> = () => {
                     );
                 })}
                 <IonCol size="12" className="ion-text-center">
-                    <ItemNew description="Modo de juego" buttons={[{icon: <IonIcon icon={add} size="large" />, action: () => router.push('/new-sketch')}]} />
+                    <ItemNew description="Modo de juego" buttons={[{icon: <IonIcon icon={add}/>, action: () => router.push('/new-sketch')}]} />
                 </IonCol>
             </IonRow>
         </IonGrid>

@@ -28,11 +28,13 @@ const Numbers: React.FC<ComponentProps> = () => {
             <NumberGroup letter="N" from={31} to={45} numbers={numbers} setNumber={setNumber} unsetNumber={unsetNumber}/>
             <NumberGroup letter="G" from={46} to={60} numbers={numbers} setNumber={setNumber} unsetNumber={unsetNumber}/>
             <NumberGroup letter="O" from={61} to={75} numbers={numbers} setNumber={setNumber} unsetNumber={unsetNumber}/>
+            <div className="ion-padding ion-margin"/>
+            <div className="ion-padding ion-margin"/>
          </IonContent>
          <IonFooter>
             <IonGrid style={{overflow: "scroll"}}>
                <IonRow className="ion-nowrap">
-                  <IonCol>
+                  <IonCol size="auto">
                      <GameMode title={currentGameMode.title} sketch={currentGameMode.sketch} active={true}/>
                   </IonCol>
                   {order.map((index: number) => (
