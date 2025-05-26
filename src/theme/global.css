@@ -1,0 +1,786 @@
+/* Color Palette Extraction from First Image */
+:root {
+  --primary-bg-color: #3f2e62;
+  /* Dark purple background */
+  --card-bg-color: #554477;
+  /* Slightly lighter purple for cards/sections */
+  --text-color-light: #f0e6fa;
+  /* Light text for contrast */
+  --text-color-dark: #b8a6d9;
+  /* Muted light purple for secondary text */
+  --accent-color: #ffc107;
+  /* Yellow/Orange for highlights/active elements */
+  --button-bg-color: #6a5796;
+  /* Purple for buttons and input backgrounds */
+  --border-color: #6e5e9b;
+  /* Subtle border color */
+  --filled-cell-color: #7b62a6;
+  /* A slightly different purple for filled cells in patterns */
+}
+
+ion-content {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --background: var(--card-bg-color);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* Align to top */
+  --min-height: 100vh;
+  --color: var(--text-color-light);
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: -webkit-center;
+}
+
+ion-footer {
+  background: var(--card-bg-color);
+}
+
+legend {
+  background-color: var(--primary-bg-color);
+}
+
+/*
+---- SECTION WRAPPER
+*/
+.section-wrapper {
+  background-color: var(--card-bg-color);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.section-wrapper .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-wrapper .head .title {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--text-color-light);
+}
+
+.section-wrapper .head .button {
+  background-color: var(--button-bg-color);
+  color: var(--text-color-light);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 0.9em;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.section-wrapper .head .button:hover {
+  background-color: #7b62a6;
+}
+
+.section-wrapper .container {
+  background-color: var(--primary-bg-color);
+  border-radius: 15px;
+  padding: 15px;
+  overflow-x: auto;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/*
+---- GAME MODE
+*/
+.game-mode {
+  background-color: var(--primary-bg-color);
+  border-radius: 15px;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+}
+
+.game-mode.active {
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+}
+
+.game-mode:hover {
+  background-color: #4b3970;
+}
+
+.game-mode .name {
+  font-size: 0.9em;
+  font-weight: 500;
+  color: var(--text-color-light);
+}
+
+.game-mode .pattern {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 3px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--button-bg-color);
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.game-mode .pattern .cell {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+.game-mode .pattern .cell.filled {
+  background-color: var(--filled-cell-color);
+}
+
+/*
+---- ITEM NEW
+*/
+
+.item-new {
+  background-color: var(--primary-bg-color);
+  border-radius: 15px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.item-new .texts {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.item-new .texts .label {
+  color: var(--text-color-dark);
+  font-size: 0.9em;
+}
+
+.item-new .texts .value {
+  color: var(--text-color-light);
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.item-new .buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.item-new .buttons .icon-button {
+  background-color: var(--button-bg-color);
+  color: var(--text-color-light);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.item-new .buttons .icon-button:hover {
+  background-color: #7b62a6;
+}
+
+/*
+---- BINGO CARD
+*/
+
+.bingo-card {
+  background-color: var(--primary-bg-color);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 320px;
+}
+
+.bingo-card .grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.bingo-card .grid .header {
+  background-color: var(--button-bg-color);
+  color: var(--text-color-light);
+  font-weight: bold;
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 10px;
+  font-size: 1.1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bingo-card .grid .cell {
+  background-color: var(--card-bg-color);
+  color: var(--text-color-light);
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 10px;
+  font-size: 1.2em;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+}
+
+.bingo-card .grid .cell input {
+  width: 100% !important;
+}
+
+.bingo-card .grid .cell.active {
+  background-color: var(--accent-color);
+  color: var(--primary-bg-color);
+  font-weight: bold;
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.5);
+}
+
+.bingo-card .grid .cell:empty {
+  background-color: var(--button-bg-color);
+  color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.bingo-card .grid .cell:empty::before {
+  content: '★';
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*
+---- INPUT GROUP
+*/
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group .label {
+  font-size: 1em;
+  color: var(--text-color-dark);
+  font-weight: 500;
+}
+
+.input-group .input {
+  background-color: var(--primary-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 15px;
+  color: var(--text-color-light);
+  font-size: 1em;
+  outline: none;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group .input::placeholder {
+  color: var(--text-color-dark);
+  opacity: 0.7;
+}
+
+.input-group .input:focus {
+  border-color: var(--accent-color);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2),
+    0 0 0 3px rgba(255, 193, 7, 0.2);
+}
+
+/*
+---- BUTTON ACCENT
+*/
+
+.button-accent {
+  background-color: var(--accent-color);
+  color: var(--primary-bg-color);
+  border: none;
+  border-radius: 15px;
+  padding: 18px 25px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  width: calc(100% - 50px);
+  margin: 0 25px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.button-accent:hover {
+  background-color: #ffda6a;
+  transform: translateY(-2px);
+}
+
+.button-accent:active {
+  transform: translateY(0);
+}
+
+/*
+---- SKETCH
+*/
+
+.sketch {
+  background-color: var(--primary-bg-color);
+  border-radius: 18px;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sketch .header {
+  background-color: var(--button-bg-color);
+  color: var(--text-color-light);
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 8px;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sketch .cell {
+  background-color: var(--card-bg-color);
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  min-height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sketch .cell:hover {
+  background-color: #6a5796;
+}
+
+.sketch .cell.active {
+  background-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.5);
+  transform: scale(0.95);
+}
+
+/*
+---- MINI BINGO CARD
+*/
+
+.mini-bingo-card {
+  background-color: var(--primary-bg-color);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3px;
+}
+
+.mini-bingo-card .header {
+  background-color: var(--button-bg-color);
+  color: var(--text-color-dark);
+  font-weight: bold;
+  text-align: center;
+  padding: 4px 0;
+  border-radius: 4px;
+  font-size: 0.6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mini-bingo-card .cell {
+  background-color: var(--card-bg-color);
+  color: var(--text-color-light);
+  text-align: center;
+  padding: 4px 0;
+  border-radius: 4px;
+  font-size: 0.65em;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 18px;
+}
+
+.mini-bingo-card .cell.active {
+  background-color: var(--accent-color);
+  color: var(--primary-bg-color);
+  font-weight: bold;
+  box-shadow: 0 0 0 1px rgba(255, 193, 7, 0.5);
+}
+
+.mini-bingo-card .cell:empty {
+  background-color: var(--button-bg-color);
+  color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.mini-bingo-card .cell:empty::before {
+  content: '●';
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.8em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*
+---- MINI GAME
+*/
+
+.mini-game {
+  background-color: var(--primary-bg-color);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 3px;
+}
+
+.mini-game .header {
+  background-color: var(--button-bg-color);
+  color: var(--text-color-dark);
+  font-weight: bold;
+  text-align: center;
+  padding: 4px 0;
+  border-radius: 4px;
+  font-size: 0.6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mini-game .cell {
+  background-color: var(--card-bg-color);
+  color: var(--text-color-light);
+  text-align: center;
+  padding: 4px 0;
+  border-radius: 4px;
+  font-size: 0.65em;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 18px;
+}
+
+.mini-game .cell.active {
+  background-color: var(--accent-color);
+  color: var(--primary-bg-color);
+  font-weight: bold;
+  box-shadow: 0 0 0 1px rgba(255, 193, 7, 0.5);
+}
+
+.mini-game .cell:empty {
+  background-color: var(--button-bg-color);
+  color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.mini-game .cell:empty::before {
+  content: '●';
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.8em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*
+---- NUMBER GROUP
+*/
+
+.number-group {
+  background-color: var(--primary-bg-color);
+  border-radius: 18px;
+  padding: 15px;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.number-group .header {
+  background-color: var(--button-bg-color);
+  color: var(--text-color-light);
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-size: 1.2em;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.number-group .grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.number-group .grid .cell {
+  background-color: var(--card-bg-color);
+  color: var(--text-color-light);
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 10px;
+  font-size: 1.1em;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.number-group .grid .cell.active {
+  background-color: var(--accent-color);
+  color: var(--primary-bg-color);
+  font-weight: bold;
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  fieldset {
+    padding: 5px;
+  }
+
+  /*
+  ---- SECTION WRAPPER
+  */
+  .section-wrapper {
+    margin: 15px 15px;
+    border-radius: 15px;
+    padding: 15px;
+  }
+
+  .section-wrapper .header .title {
+    font-size: 1.1em;
+  }
+
+  .section-wrapper .header .button {
+    padding: 8px 12px;
+    font-size: 0.85em;
+  }
+
+  /*
+  ---- GAME MODE
+  */
+  .game-mode {
+    padding: 10px 5px;
+  }
+
+  .game-mode .name {
+    font-size: 0.85em;
+  }
+
+  .game-mode .pattern {
+    width: 50px;
+    height: 50px;
+    gap: 2px;
+  }
+
+  /*
+  ---- ITEM NEW
+  */
+  .item-new {
+    padding: 12px 15px;
+  }
+
+  .item-new .buttons .icon-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1em;
+  }
+
+  /*
+  ---- BINGO CARD
+  */
+  .bingo-card {
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .bingo-card .grid {
+    gap: 8px;
+  }
+
+  .bingo-card .grid .header {
+    padding: 10px 0;
+    font-size: 1em;
+    border-radius: 8px;
+  }
+
+  .bingo-card .grid .cell {
+    padding: 10px 0;
+    font-size: 1.1em;
+    min-height: 35px;
+    border-radius: 8px;
+  }
+
+  /*
+  ---- INPUT GROUP
+  */
+  .input-group .label {
+    font-size: 0.9em;
+  }
+
+  .input-group .input {
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 0.9em;
+  }
+
+  /*
+  ---- BUTTON ACCENT
+  */
+  .button-accent {
+    padding: 15px 20px;
+    font-size: 1.1em;
+    border-radius: 12px;
+    width: calc(100% - 40px);
+    margin: 20px 20px 0 20px;
+  }
+
+  /*
+  --- SKETCH
+  */
+  .sketch {
+    padding: 10px;
+    border-radius: 15px;
+    gap: 6px;
+  }
+
+  .sketch .header {
+    padding: 8px 0;
+    font-size: 0.8em;
+    border-radius: 6px;
+  }
+
+  .sketch .cell {
+    padding: 10px 0;
+    min-height: 55px;
+    border-radius: 6px;
+  }
+
+  /*
+  ---- MINI BINGO CARD
+  */
+  .mini-bingo-card {
+    padding: 6px;
+    border-radius: 10px;
+    gap: 2px;
+  }
+
+  .mini-bingo-card .header {
+    padding: 3px 0;
+    font-size: 0.55em;
+    border-radius: 3px;
+  }
+
+  .mini-bingo-card .cell {
+    padding: 3px 0;
+    font-size: 0.6em;
+    min-height: 16px;
+    border-radius: 3px;
+  }
+
+  .mini-bingo-card .cell:empty::before {
+    font-size: 0.7em;
+  }
+
+  /*
+  --- MINI GAME
+  */
+  .mini-game {
+    padding: 6px;
+    border-radius: 10px;
+    gap: 2px;
+  }
+
+  .mini-game .header {
+    padding: 3px 0;
+    font-size: 0.55em;
+    border-radius: 3px;
+  }
+
+  .mini-game .cell {
+    padding: 3px 0;
+    font-size: 0.6em;
+    min-height: 16px;
+    border-radius: 3px;
+  }
+
+  .mini-game .cell:empty::before {
+    font-size: 0.7em;
+  }
+
+  /*
+  ---- NUMBER GROUP
+  */
+  .number-group {
+    padding: 10px;
+    border-radius: 15px;
+    gap: 10px;
+  }
+
+  .number-group .header {
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 1em;
+  }
+
+  .number-group .grid {
+    gap: 6px;
+  }
+
+  .number-group .cell {
+    padding: 10px 0;
+    border-radius: 8px;
+    font-size: 1em;
+    min-height: 35px;
+  }
+}

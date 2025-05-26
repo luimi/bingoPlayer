@@ -2,6 +2,9 @@ import { IonButton, IonCard, IonCardContent, IonCol, IonContent, IonFab, IonFabB
 import { arrowBack } from "ionicons/icons";
 import React from "react";
 import { setGameMode } from "../../utils/BingoController";
+import InputGroup from "../../components/InputGroup";
+import Sketch from "../../components/Sketch";
+import ButtonAccent from "../../components/ButtonAccent";
 
 interface ComponentProps { }
 const NewSketch: React.FC<ComponentProps> = () => {
@@ -31,48 +34,16 @@ const NewSketch: React.FC<ComponentProps> = () => {
         <IonPage>
             <IonContent className="ion-padding">
                 <IonFab slot="fixed" vertical="bottom" horizontal="end">
-                    <IonFabButton onClick={() => router.goBack()}>
+                    <IonFabButton color="warning" onClick={() => router.goBack()}>
                         <IonIcon icon={arrowBack} ></IonIcon>
                     </IonFabButton>
                 </IonFab>
-                <IonItem lines="none">
-                    <IonLabel>Nuevo Patron</IonLabel>
-                </IonItem>
-                <IonItem>
-                    <IonInput label="Nombre" labelPlacement="stacked" placeholder="Escribe aquí" type="text" onIonInput={(e) => setPatern({ ...pattern, name: e.target.value + '', title: e.target.value + '' })}></IonInput>
-                </IonItem>
-                <IonItem lines="none">
-                    <IonLabel>Casillas</IonLabel>
-                </IonItem>
-                <IonGrid>
-                    <IonRow className="ion-justify-content-center">
-                        <IonCol size="auto">
-                            <table id="sketch">
-                                <tr>
-                                    <th>B</th>
-                                    <th>I</th>
-                                    <th>N</th>
-                                    <th>G</th>
-                                    <th>O</th>
-                                </tr>
-                                <tbody>
-                                    {pattern.sketch.map((row, rIndex) => (
-                                        <tr key={`row${rIndex}`}>
-                                            {row.map((cell, cIndex) => (
-                                                <td key={`cell${rIndex}${cIndex}`} className={`${cell === 1 ? 'selected' : ''}`} onClick={() => {
-                                                    let copy = [...pattern.sketch]
-                                                    copy[rIndex][cIndex] = copy[rIndex][cIndex] === 0 ? 1 : 0;
-                                                    setPatern({ ...pattern, sketch: copy })
-                                                }}></td>
-                                            ))}
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </IonCol>
-                    </IonRow>
-                </IonGrid>
-                <IonButton expand="block" onClick={save}>Guardar</IonButton>
+                <h1>Nuevo Modo De Juego</h1>
+                <InputGroup title="Nombre" onChange={(e: any) => setPatern({ ...pattern, name: e.target.value + '', title: e.target.value + '' })}/>
+                <h2>Casillas</h2>
+                <Sketch pattern={pattern} setPatern={setPatern}/>
+                <ButtonAccent text="Guardar" action={save} />
+                
             </IonContent>
         </IonPage>
     );

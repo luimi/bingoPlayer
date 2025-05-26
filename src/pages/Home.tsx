@@ -1,4 +1,4 @@
-import { IonContent, IonPage } from '@ionic/react';
+import { IonContent, IonIcon, IonPage } from '@ionic/react';
 import OptionWrapper from '../components/OptionWrapper';
 import { refresh, trash } from 'ionicons/icons';
 import NumberBoardMini from '../components/NumberBoardMini';
@@ -6,26 +6,33 @@ import GameModes from '../components/GameModes';
 import { clearCards, clearNumbers, setNumber } from '../utils/BingoController';
 import { Link } from 'react-router-dom';
 import BingoCards from '../components/BingoCards';
+import SectionWrapper from '../components/SectionWrapper';
 
 const Home: React.FC = () => {
   return (
     <IonPage>
       <IonContent>
-        <OptionWrapper title="Juego Actual" actionTitle='Reiniciar' icon={refresh} action={() => {
+        {/* CARTONES */}
+        <SectionWrapper title="Cartones" actionTitle='Borrar' icon={<IonIcon icon={trash}/>} action={() => {
+          clearCards()
+        }}>
+          <BingoCards />
+        </SectionWrapper>
+
+        {/* TIPOS DE JUEGO */}
+        <SectionWrapper  title="Modo de juego">
+          <GameModes  />
+        </SectionWrapper>
+
+        {/* JUEGO ACTUAL */}
+        <SectionWrapper  title="Juego Actual" actionTitle='Reiniciar' icon={<IonIcon icon={refresh}/>} action={() => {
           clearNumbers()
         }}>
           <Link to="/numbers">
             <NumberBoardMini />
           </Link>
-        </OptionWrapper>
-        <OptionWrapper title="Modo de juego">
-          <GameModes  />
-        </OptionWrapper>
-        <OptionWrapper title="Cartones" actionTitle='Borrar' icon={trash} action={() => {
-          clearCards()
-        }}>
-          <BingoCards />
-        </OptionWrapper>
+        </SectionWrapper>
+        
       </IonContent>
       
     </IonPage>

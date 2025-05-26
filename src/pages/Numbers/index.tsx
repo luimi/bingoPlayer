@@ -5,6 +5,9 @@ import './styles.scss';
 import { setNumber, unsetNumber } from "../../utils/BingoController";
 import { Link } from "react-router-dom";
 import GameModeMini from "../../components/GameModeMini";
+import NumberGroup from "../../components/NumberGroup";
+import GameMode from "../../components/GameMode";
+import MiniBingoCard from "../../components/MiniBingoCard";
 
 interface ComponentProps { }
 const Numbers: React.FC<ComponentProps> = () => {
@@ -16,53 +19,26 @@ const Numbers: React.FC<ComponentProps> = () => {
       <IonPage>
          <IonContent>
             <IonFab slot="fixed" vertical="bottom" horizontal="end">
-               <IonFabButton onClick={() => router.goBack()}>
+               <IonFabButton color="warning" onClick={() => router.goBack()}>
                   <IonIcon icon={arrowBack} ></IonIcon>
                </IonFabButton>
             </IonFab>
-            <IonGrid>
-               <IonRow>
-                  {numberArray.map((number) => (
-                     <IonCol size="2" size-md="1" key={number} className="">
-                        <IonCard className="ion-text-center ion-no-margin">
-                           <IonCardHeader className={`ion-no-padding ion-padding-vertical ${numbers.includes(number) ? 'selected' : ''}`} onClick={() => {
-                              if (numbers.includes(number)) {
-                                 unsetNumber(number)
-                              } else {
-                                 setNumber(number)
-                              }
-                           }}>
-                              <IonCardTitle>
-                                 {number}
-                              </IonCardTitle>
-                           </IonCardHeader>
-                        </IonCard>
-                     </IonCol>
-                  ))}
-               </IonRow>
-            </IonGrid>
+            <NumberGroup letter="B" from={1} to={15} numbers={numbers} setNumber={setNumber} unsetNumber={unsetNumber}/>
+            <NumberGroup letter="I" from={16} to={30} numbers={numbers} setNumber={setNumber} unsetNumber={unsetNumber}/>
+            <NumberGroup letter="N" from={31} to={45} numbers={numbers} setNumber={setNumber} unsetNumber={unsetNumber}/>
+            <NumberGroup letter="G" from={46} to={60} numbers={numbers} setNumber={setNumber} unsetNumber={unsetNumber}/>
+            <NumberGroup letter="O" from={61} to={75} numbers={numbers} setNumber={setNumber} unsetNumber={unsetNumber}/>
          </IonContent>
          <IonFooter>
             <IonGrid style={{overflow: "scroll"}}>
                <IonRow className="ion-nowrap">
                   <IonCol>
-                     <IonLabel className="ion-text-center">{currentGameMode.title}</IonLabel>
-                     <GameModeMini sketch={currentGameMode.sketch}/>
+                     <GameMode title={currentGameMode.title} sketch={currentGameMode.sketch} active={true}/>
                   </IonCol>
                   {order.map((index: number) => (
                      <IonCol size="auto" className="ion-text-center" key={index}>
                         <Link to={`/card/${index}`}>
-                           <table id="card">
-                              <tbody>
-                                 {cards[index].map((row: any, rIndex: number) => (
-                                    <tr key={`row${rIndex}`}>
-                                       {row.map((cell: any, cIndex: number) => (
-                                          <td key={`cell${rIndex}${cIndex}`} className={`${numbers.includes(cell) ? 'selected' : ''}`}>{cell !== 0 ? cell : ''}</td>
-                                       ))}
-                                    </tr>
-                                 ))}
-                              </tbody>
-                           </table>
+                           <MiniBingoCard card={cards[index]} numbers={numbers} showHeaders={false} />
                         </Link>
                      </IonCol>
                   ))}

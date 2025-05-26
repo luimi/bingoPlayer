@@ -4,7 +4,7 @@ http://ionicframework.com/docs/theming/ */
 a {
     all: unset;
 }
-
+/*
 table, td {
   border: 1px solid;
 }
@@ -48,3 +48,4 @@ table {
 .w100 {
     width: 100%;
 }
+    */

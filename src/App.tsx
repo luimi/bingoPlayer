@@ -32,6 +32,7 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import './theme/global.css';
 import { setBingoContext } from './utils/BingoController';
 import { BingoContext, useBingoContext } from './contexts/BingoContext';
 import Numbers from './pages/Numbers';

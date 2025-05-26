@@ -1,4 +1,5 @@
 import { useBingoContext } from '../../contexts/BingoContext';
+import MiniGame from '../MiniGame';
 interface ComponentProps { }
 const NumberBoardMini: React.FC<ComponentProps> = () => {
   const { numbers } = useBingoContext()
@@ -26,9 +27,7 @@ const NumberBoardMini: React.FC<ComponentProps> = () => {
     );
   };
   return (
-    <div>
-      {generateTable()}
-    </div>
+    <MiniGame numbers={numbers}/>
 
   );
 };

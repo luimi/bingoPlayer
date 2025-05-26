@@ -1,30 +1,27 @@
-import { IonCol, IonGrid, IonIcon, IonRow } from "@ionic/react";
-import React, { use } from "react";
-import GameModeMini from "../GameModeMini";
+import { IonCol, IonGrid, IonIcon, IonRow, useIonRouter } from "@ionic/react";
+import React from "react";
 import { setCurrentGameMode } from "../../utils/BingoController";
 import { useBingoContext } from "../../contexts/BingoContext";
-import { addCircleOutline } from "ionicons/icons";
-import { Link } from "react-router-dom";
+import { add } from "ionicons/icons";
+import GameMode from "../GameMode";
+import ItemNew from "../ItemNew";
 
 interface ComponentProps { }
 const GameModes: React.FC<ComponentProps> = () => {
     const { gameModes, gameMode }: { gameModes: any[], gameMode: string } = useBingoContext();
+    const router = useIonRouter();
     return (
         <IonGrid>
             <IonRow>
                 {gameModes.map((_gameMode, index) => {
                     return (
                         <IonCol key={index} size="auto" className={`ion-text-center ${_gameMode.name === gameMode ? 'active': ''}`} onClick={() => setCurrentGameMode(_gameMode.name)}>
-                            <div>{_gameMode.title}</div>
-                            <GameModeMini sketch={_gameMode.sketch} />
+                            <GameMode title={_gameMode.title} sketch={_gameMode.sketch} active={_gameMode.name === gameMode}/>
                         </IonCol>
                     );
                 })}
-                <IonCol size="auto" className="ion-text-center">
-                    <Link to="/new-sketch">
-                        <div>Nuevo</div>
-                        <IonIcon icon={addCircleOutline} size="large" color="primary" className="ion-padding-vertical" />
-                    </Link>
+                <IonCol size="12" className="ion-text-center">
+                    <ItemNew description="Modo de juego" buttons={[{icon: <IonIcon icon={add} size="large" />, action: () => router.push('/new-sketch')}]} />
                 </IonCol>
             </IonRow>
         </IonGrid>
