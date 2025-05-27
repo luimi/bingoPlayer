@@ -1,4 +1,5 @@
 let context: any = null;
+let bingoAnimation: any = null;
 
 const local = {
     numbersPlayed: "numbers",
@@ -70,6 +71,9 @@ export const getCard = (index: number) => {
 export const setBingoContext = (_context: any) => {
     context = _context;
 }
+export const setBingoAnimation = (trigger: any) => {
+    bingoAnimation = trigger
+}
 export const setNumber = (number: number) => {
     if (context.numbers.includes(number)) return;
     let newNumbers = [...context.numbers, number];
@@ -138,9 +142,7 @@ export const checkBingos = () => {
     bingos.sort((a: any, b: any) => a.count > b.count ? -1 : 1)
     let order = bingos.map((result: any) => result.index);
     context.setOrder(order)
-    if (bingos.filter(((result: any) => result.success)).length > 0) context.presentAlert({
-        message: '¡BINGO!',
-    })
+    if (bingos.filter(((result: any) => result.success)).length > 0) bingoAnimation()
 }
 const checkCard = (numbers: any, card: any, pattern: any, total: number) => {
     let status = { success: false, count: 0 }

@@ -33,16 +33,30 @@ import '@ionic/react/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 import './theme/global.css';
-import { setBingoContext } from './utils/BingoController';
+import { setBingoAnimation, setBingoContext } from './utils/BingoController';
 import { BingoContext, useBingoContext } from './contexts/BingoContext';
 import Numbers from './pages/Numbers';
 import NewSketch from './pages/NewSketch';
 import Card from './pages/Card';
+import { useCallback, useState } from 'react';
+import BingoAnimation from './components/BingoAnimation';
 
 setupIonicReact();
 setBingoContext(BingoContext);
-const App: React.FC = () => (
-  <IonApp>
+
+const App: React.FC = () => {
+  const [showBingo, setShowBingo] = useState(false);
+
+  const triggerBingoAnimation = useCallback(() => {
+    setShowBingo(true);
+  }, []);
+
+  const handleBingoAnimationEnd = useCallback(() => {
+    setShowBingo(false);
+  }, []);
+
+  setBingoAnimation(triggerBingoAnimation)
+  return <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
         <Route exact path="/home">
@@ -61,7 +75,8 @@ const App: React.FC = () => (
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>
+    <BingoAnimation isVisible={showBingo} onAnimationEnd={handleBingoAnimationEnd}/>
   </IonApp>
-);
+};
 
 export default App;

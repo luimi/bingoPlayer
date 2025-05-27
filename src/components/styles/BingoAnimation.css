@@ -1,0 +1,114 @@
+
+.animation-container {
+  position: fixed; /* Overlay the entire screen */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
+  z-index: 999; /* Ensure it's on top */
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Allows clicks to pass through when hidden */
+  transition: opacity 0.3s ease-out;
+}
+
+.animation-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bingo-text {
+  font-size: 0em; /* Start small */
+  font-weight: bold;
+  color: var(--accent-color); /* Yellow accent color */
+  text-shadow: 0 0 15px rgba(255, 193, 7, 0.8), 0 0 30px rgba(255, 193, 7, 0.6); /* Strong glow */
+  text-align: center;
+  opacity: 0; /* Hidden by default */
+  transform: scale(0.1); /* Start very small */
+  animation-fill-mode: forwards; /* Keep the end state of the animation */
+}
+
+.animation-container.show .bingo-text {
+  animation: bingoPop 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; /* Pop-out effect */
+  animation-delay: 0.2s; /* Delay slightly after container shows */
+}
+
+@keyframes bingoPop {
+  0% {
+    font-size: 0em;
+    opacity: 0;
+    transform: scale(0.1) rotateX(90deg);
+  }
+  50% {
+    font-size: 8em; /* Max size */
+    opacity: 1;
+    transform: scale(1.1) rotateX(0deg); /* Slightly larger then settle */
+  }
+  70% {
+    transform: scale(0.95); /* Little bounce */
+  }
+  100% {
+    font-size: 5em; /* Final size */
+    opacity: 1;
+    transform: scale(1) rotateX(0deg);
+  }
+}
+
+/* Confetti Styling */
+.confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allow interaction with elements behind confetti */
+  overflow: hidden; /* Ensure confetti stays within bounds */
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent-color); /* Default confetti color */
+  border-radius: 50%; /* Circle shape */
+  opacity: 0; /* Hidden initially */
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  transform: translateZ(0); /* Optimize for animation */
+}
+
+/* Confetti Colors */
+.confetti.color-1 {
+  background-color: var(--accent-color);
+}
+.confetti.color-2 {
+  background-color: var(--text-color-light);
+  border-radius: 2px;
+} /* Square confetti */
+.confetti.color-3 {
+  background-color: var(--button-bg-color);
+}
+.confetti.color-4 {
+  background-color: #f44336;
+} /* Red */
+.confetti.color-5 {
+  background-color: #2196f3;
+} /* Blue */
+
+/* Confetti Fall and Rotate Animation */
+@keyframes confetti-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-10vh) rotateZ(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) rotateZ(720deg);
+  }
+}
