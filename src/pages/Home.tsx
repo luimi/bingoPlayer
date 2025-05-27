@@ -7,11 +7,14 @@ import { clearCards, clearNumbers, setNumber } from '../utils/BingoController';
 import { Link } from 'react-router-dom';
 import BingoCards from '../components/BingoCards';
 import SectionWrapper from '../components/SectionWrapper';
+import logo from '../assets/logo-banner.png';
 
 const Home: React.FC = () => {
   return (
     <IonPage>
       <IonContent>
+
+        <img className="logo" src={logo}/>
         {/* CARTONES */}
         <SectionWrapper title="Cartones" actionTitle='Borrar' icon={<IonIcon icon={trash}/>} action={() => {
           clearCards()

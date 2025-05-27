@@ -8,6 +8,7 @@ import GameModeMini from "../../components/GameModeMini";
 import NumberGroup from "../../components/NumberGroup";
 import GameMode from "../../components/GameMode";
 import MiniBingoCard from "../../components/MiniBingoCard";
+import logo from '../../assets/logo-banner.png';
 
 interface ComponentProps { }
 const Numbers: React.FC<ComponentProps> = () => {
@@ -18,6 +19,7 @@ const Numbers: React.FC<ComponentProps> = () => {
    return (
       <IonPage>
          <IonContent>
+            <img className="logo" src={logo}/>
             <IonFab slot="fixed" vertical="bottom" horizontal="end">
                <IonFabButton color="warning" onClick={() => router.goBack()}>
                   <IonIcon icon={arrowBack} ></IonIcon>

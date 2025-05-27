@@ -5,6 +5,7 @@ import { getCard, removeCard, setCard, setNumber, unsetNumber } from "../utils/B
 import { RouteComponentProps } from "react-router";
 import { useBingoContext } from "../contexts/BingoContext";
 import BingoCard from "../components/BingoCard";
+import logo from '../assets/logo-banner.png';
 
 interface ComponentProps extends RouteComponentProps<{ index?: string; }> { }
 const Card: React.FC<ComponentProps> = ({ match }) => {
@@ -26,6 +27,7 @@ const Card: React.FC<ComponentProps> = ({ match }) => {
     return (
         <IonPage>
             <IonContent className="ion-padding">
+                <img className="logo ion-margin-vertical" src={logo}/>
                 <BingoCard sketch={sketch} numbers={numbers} isEditing={isEditing} setNumber={setNumber} unsetNumber={unsetNumber} setSketch={setSketch} />
             </IonContent>
             <IonFooter>

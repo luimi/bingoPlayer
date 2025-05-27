@@ -40,6 +40,10 @@ ion-footer {
   background: var(--card-bg-color);
 }
 
+.logo {
+  width: 50vw;
+  margin-top: 20px;
+}
 
 /*
 ---- SECTION WRAPPER
