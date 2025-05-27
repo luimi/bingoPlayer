@@ -1,6 +1,5 @@
-const GOOGLE_API_KEY = import.meta.env.VITE_API_GEMINI;
+const GOOGLE_API_KEY = atob(import.meta.env.VITE_API_GEMINI);
 const prompt = "Analiza esta imagen y devuelve un array en JSON donde extraigas los numeros de bingo en este formato [[[1,15,23,43,69], [2,16,24,45,70], ...]] donde el primer arreglo contiene cada carton de bingo que veas, si en alguno de las celdas no hay numero entero, rellena los campos con el numero cero, si no hay cartones legibles devuelve un array vacio"
-
 export const getCardsWithIA = async (event: any) => {
     const selectedFile = event.target.files[0];
     const mimeType = selectedFile.type;
