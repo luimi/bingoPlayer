@@ -26,7 +26,7 @@ const Card: React.FC<ComponentProps> = ({ match }) => {
     }, [])
     return (
         <IonPage>
-            <IonContent className="ion-padding">
+            <IonContent>
                 <img className="logo ion-margin-vertical" src={logo}/>
                 <BingoCard sketch={sketch} numbers={numbers} isEditing={isEditing} setNumber={setNumber} unsetNumber={unsetNumber} setSketch={setSketch} />
             </IonContent>

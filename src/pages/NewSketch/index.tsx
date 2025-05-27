@@ -28,25 +28,27 @@ const NewSketch: React.FC<ComponentProps> = () => {
         }
         if (setGameMode(pattern)) router.goBack()
         else present({
-                message:  "Ya existe un modo de juego con ese nombre",
-                duration: 3000,
-                position: 'top',
-                color: 'danger',
-            })
+            message: "Ya existe un modo de juego con ese nombre",
+            duration: 3000,
+            position: 'top',
+            color: 'danger',
+        })
     }
     return (
         <IonPage>
-            <IonContent className="ion-padding">
+            <IonContent>
                 <IonFab slot="fixed" vertical="bottom" horizontal="end">
                     <IonFabButton color="warning" onClick={() => router.goBack()}>
                         <IonIcon icon={arrowBack} ></IonIcon>
                     </IonFabButton>
                 </IonFab>
-                <h1>Nuevo Modo De Juego</h1>
-                <InputGroup title="Nombre" onChange={(e: any) => setPatern({ ...pattern, name: e.target.value + '', title: e.target.value + '' })} />
-                <h2>Casillas</h2>
-                <Sketch pattern={pattern} setPatern={setPatern} />
-                <ButtonAccent text="Guardar" action={save} />
+                <div className="ion-padding">
+                    <h1>Nuevo Modo De Juego</h1>
+                    <InputGroup title="Nombre" onChange={(e: any) => setPatern({ ...pattern, name: e.target.value + '', title: e.target.value + '' })} />
+                    <h2>Casillas</h2>
+                    <Sketch pattern={pattern} setPatern={setPatern} />
+                    <ButtonAccent text="Guardar" action={save} />
+                </div>
 
             </IonContent>
         </IonPage>

@@ -34,6 +34,10 @@ ion-content {
   padding: 20px;
   box-sizing: border-box;
   text-align: -webkit-center;
+  --padding-top: var(--ion-safe-area-top);
+  --padding-bottom: var(--ion-safe-area-bottom);
+  --padding-start: var(--ion-safe-area-left);
+  --padding-end: var(--ion-safe-area-right);
 }
 
 ion-footer {

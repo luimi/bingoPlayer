@@ -40,6 +40,7 @@ import NewSketch from './pages/NewSketch';
 import Card from './pages/Card';
 import { useCallback, useState } from 'react';
 import BingoAnimation from './components/BingoAnimation';
+import { SafeArea } from "capacitor-plugin-safe-area";
 
 setupIonicReact();
 setBingoContext(BingoContext);
@@ -55,6 +56,13 @@ const App: React.FC = () => {
     setShowBingo(false);
   }, []);
 
+  SafeArea.getSafeAreaInsets().then((data) => {
+    const { insets } = data;
+    document.body.style.setProperty("--ion-safe-area-top", `${insets.top}px`);
+    document.body.style.setProperty("--ion-safe-area-right", `${insets.right}px`);
+    document.body.style.setProperty("--ion-safe-area-bottom", `${insets.bottom}px`);
+    document.body.style.setProperty("--ion-safe-area-left", `${insets.left}px`);
+  });
   setBingoAnimation(triggerBingoAnimation)
   return <IonApp>
     <IonReactRouter>
@@ -68,14 +76,14 @@ const App: React.FC = () => {
         <Route exact path="/new-sketch">
           <NewSketch />
         </Route>
-        <Route exact path="/card/:index" component={Card}/>
-        <Route exact path="/card" component={Card}/>
+        <Route exact path="/card/:index" component={Card} />
+        <Route exact path="/card" component={Card} />
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>
-    <BingoAnimation isVisible={showBingo} onAnimationEnd={handleBingoAnimationEnd}/>
+    <BingoAnimation isVisible={showBingo} onAnimationEnd={handleBingoAnimationEnd} />
   </IonApp>
 };
 
