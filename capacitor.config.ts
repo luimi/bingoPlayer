@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'bingoPlayer',
+  appId: 'com.lui2mi.bingoplayer',
+  appName: 'Bingo Player',
   webDir: 'dist'
 };
 
