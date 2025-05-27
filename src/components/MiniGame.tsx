@@ -10,7 +10,7 @@ const MiniGame: React.FC<MiniGameProps> = ({ numbers = [] }) => {
     <div className="mini-game">
       {allNumbers.map((cell) => {
         return (
-          <div
+          <div key={cell}
             className={`${Number.isInteger(cell) ? 'cell' : 'header'} ${
               numbers.includes(parseInt(cell + '')) ? 'active' : ''
             }`}
