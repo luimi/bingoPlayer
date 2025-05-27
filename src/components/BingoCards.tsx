@@ -23,7 +23,7 @@ const BingoCards: React.FC<ComponentProps> = () => {
             setCards(newCards)
         } else {
             present({
-                message: 'No se pudo procesar la informacion de los cartones',
+                message: 'No se pudo procesar la información de los cartones',
                 duration: 3000,
                 position: 'top',
                 color: 'danger',

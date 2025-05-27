@@ -28,7 +28,7 @@ const NewSketch: React.FC<ComponentProps> = () => {
         }
         if (setGameMode(pattern)) router.goBack()
         else present({
-                message:  "Existe ya un modo de juego con este nombre",
+                message:  "Ya existe un modo de juego con ese nombre",
                 duration: 3000,
                 position: 'top',
                 color: 'danger',
