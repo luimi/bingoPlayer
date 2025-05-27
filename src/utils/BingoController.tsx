@@ -1,3 +1,5 @@
+import { patterns } from "./defaults";
+
 let context: any = null;
 let bingoAnimation: any = null;
 
@@ -11,23 +13,44 @@ const defaultGameModes = [
     {
         name: "full",
         title: "Lleno",
-        sketch: [[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 0, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]],
+        sketch: patterns.full,
     }, 
     {
         name: "x",
         title: "X",
-        sketch: [[1, 0, 0, 0, 1], [0, 1, 0, 1, 0], [0, 0, 0, 0, 0], [0, 1, 0, 1, 0], [1, 0, 0, 0, 1]],
+        sketch: patterns.x,
     },
     {
         name: "l",
         title: "L",
-        sketch: [[1, 0, 0, 0, 0], [1, 0, 0, 0, 0], [1, 0, 0, 0, 0], [1, 0, 0, 0, 0], [1, 1, 1, 1, 1]],
+        sketch: patterns.l,
     },
     {
         name: "t",
         title: "T",
-        sketch: [[1, 1, 1, 1, 1], [0, 0, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 1, 0, 0]],
-    }
+        sketch: patterns.t,
+    },
+    {
+        name: "h",
+        title: "H",
+        sketch: patterns.h,
+    },
+    {
+        name: "i",
+        title: "I",
+        sketch: patterns.i,
+    },
+    {
+        name: "corners",
+        title: "Esquinas",
+        sketch: patterns.corners,
+    },
+    {
+        name: "top",
+        title: "Arriba",
+        sketch: patterns.top,
+    },
+    
 ]
 export const getCurrentNumbers = () => {
     const numbers = localStorage.getItem(local.numbersPlayed);
