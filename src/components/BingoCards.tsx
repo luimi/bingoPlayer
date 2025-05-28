@@ -46,7 +46,7 @@ const BingoCards: React.FC<ComponentProps> = () => {
                             if (!loading) inputFileRef.current?.click()
                         }
                     }]} />
-                    <input type="file" className="ion-hide" ref={inputFileRef} capture="environment" onChange={handleInputChange} />
+                    <input type="file" accept="image/*" className="ion-hide" ref={inputFileRef} capture="environment" onChange={handleInputChange} />
                 </IonCol>
             </IonRow>
         </IonGrid>
