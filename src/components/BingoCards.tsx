@@ -9,6 +9,7 @@ import MiniBingoCard from "./MiniBingoCard";
 import ItemNew from "./ItemNew";
 import '../utils/I18n';
 import { useTranslation } from "react-i18next";
+import { gaEvent } from "../utils/analytics";
 
 interface ComponentProps { }
 const BingoCards: React.FC<ComponentProps> = () => {
@@ -21,6 +22,7 @@ const BingoCards: React.FC<ComponentProps> = () => {
     const handleInputChange = async (e: any) => {
         setLoading(true)
         const newCards = await getCardsWithIA(e)
+        
         setLoading(false)
         if (newCards && newCards.length > 0) {
             setCards(newCards)
@@ -32,6 +34,7 @@ const BingoCards: React.FC<ComponentProps> = () => {
                 color: 'danger',
             })
         }
+        if (newCards) gaEvent(`scan-${newCards.length}`)
     }
     return (
         <IonGrid>

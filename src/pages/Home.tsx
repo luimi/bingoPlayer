@@ -10,6 +10,7 @@ import SectionWrapper from '../components/SectionWrapper';
 import logo from '../assets/logo-banner.png';
 import { useTranslation } from 'react-i18next';
 import '../utils/I18n';
+import { gaEvent } from '../utils/analytics';
 
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -19,6 +20,7 @@ const Home: React.FC = () => {
         <img className="logo" src={logo}/>
         {/* CARTONES */}
         <SectionWrapper title={t('home.cards.title')} actionTitle={t('home.cards.button')} icon={<IonIcon icon={trash}/>} action={() => {
+          gaEvent("clear-cards")
           clearCards()
         }}>
           <BingoCards />
@@ -31,6 +33,7 @@ const Home: React.FC = () => {
 
         {/* JUEGO ACTUAL */}
         <SectionWrapper  title={t('home.currentGame.title')} actionTitle={t('home.currentGame.button')} icon={<IonIcon icon={refresh}/>} action={() => {
+          gaEvent("clear-numbers")
           clearNumbers()
         }}>
           <Link to="/numbers">

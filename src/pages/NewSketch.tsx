@@ -7,6 +7,7 @@ import Sketch from "../components/Sketch";
 import ButtonAccent from "../components/ButtonAccent";
 import { useTranslation } from "react-i18next";
 import '../utils/I18n';
+import { gaEvent } from "../utils/analytics";
 
 interface ComponentProps { }
 const NewSketch: React.FC<ComponentProps> = () => {
@@ -29,8 +30,10 @@ const NewSketch: React.FC<ComponentProps> = () => {
             })
             return;
         }
-        if (setGameMode(pattern, t)) router.goBack()
-        else present({
+        if (setGameMode(pattern, t)) {
+            gaEvent("new-game-mode")
+            router.goBack()
+        } else present({
             message: t("newSketch.error.exists"),
             duration: 3000,
             position: 'top',

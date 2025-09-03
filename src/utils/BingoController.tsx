@@ -1,3 +1,4 @@
+import { gaEvent } from "./analytics";
 import { patterns } from "./defaults";
 
 let context: any = null;
@@ -105,6 +106,7 @@ export const setNumber = (number: number) => {
     let newNumbers = [...context.numbers, number];
     localStorage.setItem(local.numbersPlayed, JSON.stringify(newNumbers));
     context.setNumbers(newNumbers);
+    gaEvent(`number-${number}`)
 }
 export const setGameMode = (gameMode: any, t: any) => {
     let customGameModes = JSON.parse(localStorage.getItem(local.customGameModes)!)

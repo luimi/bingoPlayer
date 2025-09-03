@@ -41,6 +41,7 @@ import Card from './pages/Card';
 import { useCallback, useState } from 'react';
 import BingoAnimation from './components/BingoAnimation';
 import { SafeArea } from "capacitor-plugin-safe-area";
+import { gaEvent } from './utils/analytics';
 
 setupIonicReact();
 setBingoContext(BingoContext);
@@ -49,6 +50,7 @@ const App: React.FC = () => {
   const [showBingo, setShowBingo] = useState(false);
 
   const triggerBingoAnimation = useCallback(() => {
+    gaEvent("bingo")
     setShowBingo(true);
   }, []);
 

@@ -6,6 +6,7 @@ import { RouteComponentProps } from "react-router";
 import { useBingoContext } from "../contexts/BingoContext";
 import BingoCard from "../components/BingoCard";
 import logo from '../assets/logo-banner.png';
+import { gaEvent } from "../utils/analytics";
 
 interface ComponentProps extends RouteComponentProps<{ index?: string; }> { }
 const Card: React.FC<ComponentProps> = ({ match }) => {
@@ -47,7 +48,10 @@ const Card: React.FC<ComponentProps> = ({ match }) => {
                             <IonFab horizontal="center">
                                 <IonFabButton color="primary" onClick={() => {
                                 setCard(sketch, isNew ? undefined : cardIndex)
-                                if (isNew) router.goBack()
+                                if (isNew) {
+                                    gaEvent("new-card")
+                                    router.goBack()
+                                }
                                 setIsEditing(false)
                             }}>
                                     <IonIcon icon={saveOutline}></IonIcon>
