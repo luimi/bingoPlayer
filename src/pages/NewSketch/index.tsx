@@ -5,10 +5,13 @@ import { setGameMode } from "../../utils/BingoController";
 import InputGroup from "../../components/InputGroup";
 import Sketch from "../../components/Sketch";
 import ButtonAccent from "../../components/ButtonAccent";
+import { useTranslation } from "react-i18next";
+import '../../utils/I18n';
 
 interface ComponentProps { }
 const NewSketch: React.FC<ComponentProps> = () => {
     const router = useIonRouter();
+    const { t } = useTranslation();
     const [pattern, setPatern] = React.useState({
         name: '',
         title: '',
@@ -19,16 +22,16 @@ const NewSketch: React.FC<ComponentProps> = () => {
     const save = () => {
         if (pattern.name.trim() === '') {
             present({
-                message: "Debes ingresar un nombre",
+                message: t("newSketch.error.name"),
                 duration: 3000,
                 position: 'top',
                 color: 'danger',
             })
             return;
         }
-        if (setGameMode(pattern)) router.goBack()
+        if (setGameMode(pattern, t)) router.goBack()
         else present({
-            message: "Ya existe un modo de juego con ese nombre",
+            message: t("newSketch.error.exists"),
             duration: 3000,
             position: 'top',
             color: 'danger',
@@ -43,11 +46,11 @@ const NewSketch: React.FC<ComponentProps> = () => {
                     </IonFabButton>
                 </IonFab>
                 <div className="ion-padding">
-                    <h1>Nuevo Modo De Juego</h1>
-                    <InputGroup title="Nombre" onChange={(e: any) => setPatern({ ...pattern, name: e.target.value + '', title: e.target.value + '' })} />
-                    <h2>Casillas</h2>
+                    <h1>{t("newSketch.title")}</h1>
+                    <InputGroup title={t('newSketch.name')} onChange={(e: any) => setPatern({ ...pattern, name: e.target.value + '', title: e.target.value + '' })} />
+                    <h2>{t("newSketch.template")}</h2>
                     <Sketch pattern={pattern} setPatern={setPatern} />
-                    <ButtonAccent text="Guardar" action={save} />
+                    <ButtonAccent text={t("newSketch.save")} action={save} />
                 </div>
 
             </IonContent>

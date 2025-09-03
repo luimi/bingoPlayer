@@ -1,0 +1,47 @@
+{
+    "home": {
+        "cards": {
+            "title": "卡片",
+            "button": "全部清除"
+        },
+        "gameMode": {
+            "title": "游戏模式"
+        },
+        "currentGame": {
+            "title": "当前游戏",
+            "button": "重置"
+        }
+    },
+    "itemNew": {
+        "new": "新"
+    },
+    "bingoCards": {
+        "error": {
+            "cardsWithAI": "无法处理卡片信息"
+        },
+        "cards": "卡片"
+    },
+    "gameModeMini": {
+        "gameMode": "游戏模式"
+    },
+    "inputGroup": {
+        "placeholder": "在此处输入"
+    },
+    "newSketch": {
+        "title": "新游戏模式",
+        "name": "名称",
+        "template": "模板",
+        "save": "保存",
+        "error": {
+            "name": "您必须输入一个名称",
+            "exists": "该名称的游戏模式已存在"
+        }
+    },
+    "bingoController": {
+        "gameModes": {
+            "full": "满",
+            "corners": "角落",
+            "top": "顶部"
+        }
+    }
+}

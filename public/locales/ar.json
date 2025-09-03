@@ -1,0 +1,47 @@
+{
+    "home": {
+        "cards": {
+            "title": "بطاقات",
+            "button": "مسح الكل"
+        },
+        "gameMode": {
+            "title": "وضع اللعب"
+        },
+        "currentGame": {
+            "title": "اللعبة الحالية",
+            "button": "إعادة تعيين"
+        }
+    },
+    "itemNew": {
+        "new": "جديد"
+    },
+    "bingoCards": {
+        "error": {
+            "cardsWithAI": "تعذر معالجة معلومات البطاقة"
+        },
+        "cards": "بطاقات"
+    },
+    "gameModeMini": {
+        "gameMode": "وضع اللعب"
+    },
+    "inputGroup": {
+        "placeholder": "اكتب هنا"
+    },
+    "newSketch": {
+        "title": "وضع لعب جديد",
+        "name": "الاسم",
+        "template": "قالب",
+        "save": "حفظ",
+        "error": {
+            "name": "يجب عليك إدخال اسم",
+            "exists": "يوجد بالفعل وضع لعب بهذا الاسم"
+        }
+    },
+    "bingoController": {
+        "gameModes": {
+            "full": "كامل",
+            "corners": "زوايا",
+            "top": "أعلى"
+        }
+    }
+}

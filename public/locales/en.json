@@ -1,0 +1,47 @@
+{
+    "home": {
+        "cards": {
+            "title": "Cards",
+            "button": "Clear All"
+        },
+        "gameMode": {
+            "title": "Game Mode"
+        },
+        "currentGame": {
+            "title": "Current Game",
+            "button": "Reset"
+        }
+    },
+    "itemNew": {
+        "new": "New"
+    },
+    "bingoCards": {
+        "error": {
+            "cardsWithAI": "Could not process card information"
+        },
+        "cards": "Cards"
+    },
+    "gameModeMini": {
+        "gameMode": "Game Mode"
+    },
+    "inputGroup": {
+        "placeholder": "Write here"
+    },
+    "newSketch": {
+        "title": "New Game Mode",
+        "name": "Name",
+        "template": "Template",
+        "save": "Save",
+        "error": {
+            "name": "You must enter a name",
+            "exists": "A game mode with that name already exists"
+        }
+    },
+    "bingoController": {
+        "gameModes": {
+            "full": "Full",
+            "corners": "Corners",
+            "top": "Top"
+        }
+    }
+}

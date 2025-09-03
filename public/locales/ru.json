@@ -1,0 +1,47 @@
+{
+    "home": {
+        "cards": {
+            "title": "Карты",
+            "button": "Очистить всё"
+        },
+        "gameMode": {
+            "title": "Режим игры"
+        },
+        "currentGame": {
+            "title": "Текущая игра",
+            "button": "Сброс"
+        }
+    },
+    "itemNew": {
+        "new": "Новый"
+    },
+    "bingoCards": {
+        "error": {
+            "cardsWithAI": "Не удалось обработать информацию о картах"
+        },
+        "cards": "Карты"
+    },
+    "gameModeMini": {
+        "gameMode": "Режим игры"
+    },
+    "inputGroup": {
+        "placeholder": "Напишите здесь"
+    },
+    "newSketch": {
+        "title": "Новый режим игры",
+        "name": "Имя",
+        "template": "Шаблон",
+        "save": "Сохранить",
+        "error": {
+            "name": "Вы должны ввести имя",
+            "exists": "Режим игры с таким именем уже существует"
+        }
+    },
+    "bingoController": {
+        "gameModes": {
+            "full": "Полный",
+            "corners": "Углы",
+            "top": "Верх"
+        }
+    }
+}

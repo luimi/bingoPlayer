@@ -7,10 +7,13 @@ import { getCardsWithIA } from "../utils/Gemini";
 import { setCard, setCards } from "../utils/BingoController";
 import MiniBingoCard from "./MiniBingoCard";
 import ItemNew from "./ItemNew";
+import '../utils/I18n';
+import { useTranslation } from "react-i18next";
 
 interface ComponentProps { }
 const BingoCards: React.FC<ComponentProps> = () => {
     const { cards, numbers, order }: { cards: Array<Array<Array<number>>>, numbers: Array<number>, order: any } = useBingoContext();
+    const { t } = useTranslation();
     const [present] = useIonToast();
     const inputFileRef = useRef<HTMLInputElement>(null)
     const [loading, setLoading] = useState(false)
@@ -23,7 +26,7 @@ const BingoCards: React.FC<ComponentProps> = () => {
             setCards(newCards)
         } else {
             present({
-                message: 'No se pudo procesar la información de los cartones',
+                message: t("bingoCards.error.cardsWithAI"),
                 duration: 3000,
                 position: 'top',
                 color: 'danger',
@@ -41,7 +44,7 @@ const BingoCards: React.FC<ComponentProps> = () => {
                     </IonCol>
                 ))}
                 <IonCol size="12" className="ion-text-center">
-                    <ItemNew description="Carton/es" buttons={[{ icon: <IonIcon icon={add} />, action: () => router.push("/card") }, {
+                    <ItemNew description={t("bingoCards.cards")} buttons={[{ icon: <IonIcon icon={add} />, action: () => router.push("/card") }, {
                         icon: <>{loading ? <IonSpinner></IonSpinner> : <IonIcon icon={camera} />}</>, action: () => {
                             if (!loading) inputFileRef.current?.click()
                         }

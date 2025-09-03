@@ -5,10 +5,13 @@ import { useBingoContext } from "../../contexts/BingoContext";
 import { add } from "ionicons/icons";
 import GameMode from "../GameMode";
 import ItemNew from "../ItemNew";
+import { useTranslation } from "react-i18next";
+import '../../utils/I18n';
 
 interface ComponentProps { }
 const GameModes: React.FC<ComponentProps> = () => {
     const { gameModes, gameMode }: { gameModes: any[], gameMode: string } = useBingoContext();
+    const { t } = useTranslation();
     const router = useIonRouter();
     return (
         <IonGrid>
@@ -21,7 +24,7 @@ const GameModes: React.FC<ComponentProps> = () => {
                     );
                 })}
                 <IonCol size="12" className="ion-text-center">
-                    <ItemNew description="Modo de juego" buttons={[{icon: <IonIcon icon={add}/>, action: () => router.push('/new-sketch')}]} />
+                    <ItemNew description={t("gameModeMini.gameMode")} buttons={[{icon: <IonIcon icon={add}/>, action: () => router.push('/new-sketch')}]} />
                 </IonCol>
             </IonRow>
         </IonGrid>

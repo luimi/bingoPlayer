@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import '../utils/I18n';
 
 interface ItemNewProps {
   description?: string;
@@ -6,10 +8,11 @@ interface ItemNewProps {
 }
 
 const ItemNew: React.FC<ItemNewProps> = ({ description, buttons = [] }) => {
+  const { t } = useTranslation();
   return (
     <div className="item-new">
       <div className="texts">
-        <span className="label">Nuevo</span>
+        <span className="label">{t("itemNew.new")}</span>
         <span className="value">{description}</span>
       </div>
       <div className="buttons">

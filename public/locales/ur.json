@@ -1,0 +1,47 @@
+{
+    "home": {
+        "cards": {
+            "title": "کارڈز",
+            "button": "سب صاف کریں"
+        },
+        "gameMode": {
+            "title": "کھیل کا انداز"
+        },
+        "currentGame": {
+            "title": "موجودہ کھیل",
+            "button": "ری سیٹ کریں"
+        }
+    },
+    "itemNew": {
+        "new": "نیا"
+    },
+    "bingoCards": {
+        "error": {
+            "cardsWithAI": "کارڈ کی معلومات پر کارروائی نہیں ہو سکی"
+        },
+        "cards": "کارڈز"
+    },
+    "gameModeMini": {
+        "gameMode": "کھیل کا انداز"
+    },
+    "inputGroup": {
+        "placeholder": "یہاں لکھیں"
+    },
+    "newSketch": {
+        "title": "نئی کھیل کا انداز",
+        "name": "نام",
+        "template": "سانچہ",
+        "save": "محفوظ کریں",
+        "error": {
+            "name": "آپ کو ایک نام درج کرنا ہوگا",
+            "exists": "اس نام کا ایک کھیل کا انداز پہلے سے موجود ہے"
+        }
+    },
+    "bingoController": {
+        "gameModes": {
+            "full": "مکمل",
+            "corners": "کونے",
+            "top": "اوپر"
+        }
+    }
+}

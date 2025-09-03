@@ -1,0 +1,47 @@
+{
+    "home": {
+        "cards": {
+            "title": "কার্ড",
+            "button": "সব মুছে ফেলুন"
+        },
+        "gameMode": {
+            "title": "খেলার ধরণ"
+        },
+        "currentGame": {
+            "title": "বর্তমান খেলা",
+            "button": "রিসেট"
+        }
+    },
+    "itemNew": {
+        "new": "নতুন"
+    },
+    "bingoCards": {
+        "error": {
+            "cardsWithAI": "কার্ডের তথ্য প্রক্রিয়া করা যায়নি"
+        },
+        "cards": "কার্ড"
+    },
+    "gameModeMini": {
+        "gameMode": "খেলার ধরণ"
+    },
+    "inputGroup": {
+        "placeholder": "এখানে লিখুন"
+    },
+    "newSketch": {
+        "title": "নতুন খেলার ধরণ",
+        "name": "নাম",
+        "template": "টেমপ্লেট",
+        "save": "সংরক্ষণ করুন",
+        "error": {
+            "name": "আপনাকে একটি নাম দিতে হবে",
+            "exists": "এই নামের একটি খেলার ধরণ ইতিমধ্যেই বিদ্যমান"
+        }
+    },
+    "bingoController": {
+        "gameModes": {
+            "full": "পূর্ণ",
+            "corners": "কোণ",
+            "top": "উপর"
+        }
+    }
+}

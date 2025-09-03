@@ -2,6 +2,7 @@ import { patterns } from "./defaults";
 
 let context: any = null;
 let bingoAnimation: any = null;
+let translator: any = null
 
 const local = {
     numbersPlayed: "numbers",
@@ -9,49 +10,50 @@ const local = {
     bingoCards: "cards",
     customGameModes: "modes",
 }
-const defaultGameModes = [
-    {
-        name: "full",
-        title: "Lleno",
-        sketch: patterns.full,
-    }, 
-    {
-        name: "x",
-        title: "X",
-        sketch: patterns.x,
-    },
-    {
-        name: "l",
-        title: "L",
-        sketch: patterns.l,
-    },
-    {
-        name: "t",
-        title: "T",
-        sketch: patterns.t,
-    },
-    {
-        name: "h",
-        title: "H",
-        sketch: patterns.h,
-    },
-    {
-        name: "i",
-        title: "I",
-        sketch: patterns.i,
-    },
-    {
-        name: "corners",
-        title: "Esquinas",
-        sketch: patterns.corners,
-    },
-    {
-        name: "top",
-        title: "Arriba",
-        sketch: patterns.top,
-    },
-    
-]
+const defaultGameModes = (t: any) => {
+    return [
+        {
+            name: "full",
+            title: t("bingoController.gameModes.full"),
+            sketch: patterns.full,
+        },
+        {
+            name: "x",
+            title: "X",
+            sketch: patterns.x,
+        },
+        {
+            name: "l",
+            title: "L",
+            sketch: patterns.l,
+        },
+        {
+            name: "t",
+            title: "T",
+            sketch: patterns.t,
+        },
+        {
+            name: "h",
+            title: "H",
+            sketch: patterns.h,
+        },
+        {
+            name: "i",
+            title: "I",
+            sketch: patterns.i,
+        },
+        {
+            name: "corners",
+            title: t("bingoController.gameModes.corners"),
+            sketch: patterns.corners,
+        },
+        {
+            name: "top",
+            title: t("bingoController.gameModes.top"),
+            sketch: patterns.top,
+        },
+    ]
+}
 export const getCurrentNumbers = () => {
     const numbers = localStorage.getItem(local.numbersPlayed);
     if (numbers) {
@@ -70,14 +72,15 @@ export const getCurrentGameMode = () => {
         return "full";
     }
 }
-export const getGameModes = () => {
+export const getGameModes = (t: any) => {
+    
     let customGameModes = [];
     if (localStorage.getItem(local.customGameModes)) {
         customGameModes = JSON.parse(localStorage.getItem(local.customGameModes)!);
     } else {
         localStorage.setItem(local.customGameModes, JSON.stringify([]));
     }
-    return [...defaultGameModes, ...customGameModes];
+    return [...defaultGameModes(t), ...customGameModes];
 }
 export const getCards = () => {
     const cards = localStorage.getItem(local.bingoCards)
@@ -103,9 +106,9 @@ export const setNumber = (number: number) => {
     localStorage.setItem(local.numbersPlayed, JSON.stringify(newNumbers));
     context.setNumbers(newNumbers);
 }
-export const setGameMode = (gameMode: any) => {
+export const setGameMode = (gameMode: any, t: any) => {
     let customGameModes = JSON.parse(localStorage.getItem(local.customGameModes)!)
-    const gameModes = [...defaultGameModes, ...customGameModes];
+    const gameModes = [...defaultGameModes(t), ...customGameModes];
     if (gameModes.some((mode: any) => mode.name.toLowerCase() === gameMode.name.toLowerCase())) return false
     customGameModes.push(gameMode)
     localStorage.setItem(local.customGameModes, JSON.stringify(customGameModes))

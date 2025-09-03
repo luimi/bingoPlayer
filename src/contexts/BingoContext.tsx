@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useEffect } from "react";
 import { checkBingos, getCards, getCurrentGameMode, getCurrentNumbers, getGameModes, setBingoContext } from "../utils/BingoController";
 import { useIonAlert } from "@ionic/react";
-
+import { useTranslation } from "react-i18next";
+import '../utils/I18n';
 
 interface BingoContextProps {
     numbers: number[];
@@ -20,10 +21,10 @@ interface BingoProviderProps {
 }
 export const BingoContext = createContext<BingoContextProps | undefined>(undefined);
 export const BingoProvider: React.FC<BingoProviderProps> = ({ children }) => {
-
+    const { t } = useTranslation();
     const [numbers, setNumbers] = React.useState<number[]>(getCurrentNumbers());
     const [gameMode, setGameMode] = React.useState<string>(getCurrentGameMode());
-    const [gameModes, setGameModes] = React.useState<any>(getGameModes());
+    const [gameModes, setGameModes] = React.useState<any>(getGameModes(t));
     const [cards, setCards] = React.useState<any>(getCards());
     const [order, setOrder] = React.useState<any>([])
     const [presentAlert] = useIonAlert();

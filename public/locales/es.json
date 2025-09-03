@@ -1,0 +1,47 @@
+{
+    "home": {
+        "cards": {
+            "title": "Cartones",
+            "button": "Borrar Todo"
+        },
+        "gameMode": {
+            "title": "Modo De Juego"
+        },
+        "currentGame": {
+            "title": "Juego Actual",
+            "button": "Reiniciar"
+        }
+    },
+    "itemNew": {
+        "new": "Nuevo"
+    },
+    "bingoCards": {
+        "error": {
+            "cardsWithAI": "No se pudo procesar la información de los cartones"
+        },
+        "cards": "Cartones"
+    },
+    "gameModeMini": {
+        "gameMode": "Modo de juego"
+    },
+    "inputGroup": {
+        "placeholder": "Escribe aquí"
+    },
+    "newSketch": {
+        "title": "Nuevo Modo De Juego",
+        "name": "Nombre",
+        "template": "Plantilla",
+        "save": "Guardar",
+        "error": {
+            "name": "Debes ingresar un nombre",
+            "exists": "Ya existe un modo de juego con ese nombre"
+        }
+    },
+    "bingoController": {
+        "gameModes": {
+            "full": "Lleno",
+            "corners": "Esquinas",
+            "top": "Arriba"
+        }
+    }
+}

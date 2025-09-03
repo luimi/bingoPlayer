@@ -1,0 +1,47 @@
+{
+    "home": {
+        "cards": {
+            "title": "कार्ड",
+            "button": "सब हटा दें"
+        },
+        "gameMode": {
+            "title": "खेल मोड"
+        },
+        "currentGame": {
+            "title": "वर्तमान खेल",
+            "button": "रीसेट करें"
+        }
+    },
+    "itemNew": {
+        "new": "नया"
+    },
+    "bingoCards": {
+        "error": {
+            "cardsWithAI": "कार्ड की जानकारी को संसाधित नहीं किया जा सका"
+        },
+        "cards": "कार्ड"
+    },
+    "gameModeMini": {
+        "gameMode": "खेल मोड"
+    },
+    "inputGroup": {
+        "placeholder": "यहां लिखें"
+    },
+    "newSketch": {
+        "title": "नया खेल मोड",
+        "name": "नाम",
+        "template": "टेम्प्लेट",
+        "save": "सहेजें",
+        "error": {
+            "name": "आपको एक नाम दर्ज करना होगा",
+            "exists": "इस नाम का एक खेल मोड पहले से मौजूद है"
+        }
+    },
+    "bingoController": {
+        "gameModes": {
+            "full": "पूर्ण",
+            "corners": "कोने",
+            "top": "ऊपर"
+        }
+    }
+}

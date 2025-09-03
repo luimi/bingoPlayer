@@ -1,0 +1,47 @@
+{
+    "home": {
+        "cards": {
+            "title": "カード",
+            "button": "すべてクリア"
+        },
+        "gameMode": {
+            "title": "ゲームモード"
+        },
+        "currentGame": {
+            "title": "現在のゲーム",
+            "button": "リセット"
+        }
+    },
+    "itemNew": {
+        "new": "新規"
+    },
+    "bingoCards": {
+        "error": {
+            "cardsWithAI": "カード情報を処理できませんでした"
+        },
+        "cards": "カード"
+    },
+    "gameModeMini": {
+        "gameMode": "ゲームモード"
+    },
+    "inputGroup": {
+        "placeholder": "ここに書く"
+    },
+    "newSketch": {
+        "title": "新しいゲームモード",
+        "name": "名前",
+        "template": "テンプレート",
+        "save": "保存",
+        "error": {
+            "name": "名前を入力する必要があります",
+            "exists": "その名前のゲームモードはすでに存在します"
+        }
+    },
+    "bingoController": {
+        "gameModes": {
+            "full": "フル",
+            "corners": "コーナー",
+            "top": "上"
+        }
+    }
+}

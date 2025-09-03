@@ -8,27 +8,29 @@ import { Link } from 'react-router-dom';
 import BingoCards from '../components/BingoCards';
 import SectionWrapper from '../components/SectionWrapper';
 import logo from '../assets/logo-banner.png';
+import { useTranslation } from 'react-i18next';
+import '../utils/I18n';
 
 const Home: React.FC = () => {
+  const { t, i18n } = useTranslation();
   return (
     <IonPage>
       <IonContent>
-
         <img className="logo" src={logo}/>
         {/* CARTONES */}
-        <SectionWrapper title="Cartones" actionTitle='Borrar' icon={<IonIcon icon={trash}/>} action={() => {
+        <SectionWrapper title={t('home.cards.title')} actionTitle={t('home.cards.button')} icon={<IonIcon icon={trash}/>} action={() => {
           clearCards()
         }}>
           <BingoCards />
         </SectionWrapper>
 
         {/* TIPOS DE JUEGO */}
-        <SectionWrapper  title="Modo de juego">
+        <SectionWrapper  title={t('home.gameMode.title')}>
           <GameModes  />
         </SectionWrapper>
 
         {/* JUEGO ACTUAL */}
-        <SectionWrapper  title="Juego Actual" actionTitle='Reiniciar' icon={<IonIcon icon={refresh}/>} action={() => {
+        <SectionWrapper  title={t('home.currentGame.title')} actionTitle={t('home.currentGame.button')} icon={<IonIcon icon={refresh}/>} action={() => {
           clearNumbers()
         }}>
           <Link to="/numbers">

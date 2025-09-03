@@ -1,0 +1,47 @@
+{
+    "home": {
+        "cards": {
+            "title": "Karten",
+            "button": "Alles löschen"
+        },
+        "gameMode": {
+            "title": "Spielmodus"
+        },
+        "currentGame": {
+            "title": "Aktuelles Spiel",
+            "button": "Zurücksetzen"
+        }
+    },
+    "itemNew": {
+        "new": "Neu"
+    },
+    "bingoCards": {
+        "error": {
+            "cardsWithAI": "Karteninformationen konnten nicht verarbeitet werden"
+        },
+        "cards": "Karten"
+    },
+    "gameModeMini": {
+        "gameMode": "Spielmodus"
+    },
+    "inputGroup": {
+        "placeholder": "Schreiben Sie hier"
+    },
+    "newSketch": {
+        "title": "Neuer Spielmodus",
+        "name": "Name",
+        "template": "Vorlage",
+        "save": "Speichern",
+        "error": {
+            "name": "Sie müssen einen Namen eingeben",
+            "exists": "Ein Spielmodus mit diesem Namen existiert bereits"
+        }
+    },
+    "bingoController": {
+        "gameModes": {
+            "full": "Voll",
+            "corners": "Ecken",
+            "top": "Oben"
+        }
+    }
+}

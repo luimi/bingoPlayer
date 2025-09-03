@@ -64,6 +64,7 @@ const App: React.FC = () => {
     document.body.style.setProperty("--ion-safe-area-left", `${insets.left}px`);
   });
   setBingoAnimation(triggerBingoAnimation)
+  
   return <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
