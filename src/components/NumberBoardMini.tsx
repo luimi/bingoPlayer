@@ -1,5 +1,5 @@
-import { useBingoContext } from '../../contexts/BingoContext';
-import MiniGame from '../MiniGame';
+import { useBingoContext } from '../contexts/BingoContext';
+import MiniGame from './MiniGame';
 interface ComponentProps { }
 const NumberBoardMini: React.FC<ComponentProps> = () => {
   const { numbers } = useBingoContext()

@@ -1,12 +1,12 @@
 import { IonCol, IonGrid, IonIcon, IonRow, useIonRouter } from "@ionic/react";
 import React from "react";
-import { setCurrentGameMode } from "../../utils/BingoController";
-import { useBingoContext } from "../../contexts/BingoContext";
+import { setCurrentGameMode } from "../utils/BingoController";
+import { useBingoContext } from "../contexts/BingoContext";
 import { add } from "ionicons/icons";
-import GameMode from "../GameMode";
-import ItemNew from "../ItemNew";
+import GameMode from "./GameMode";
+import ItemNew from "./ItemNew";
 import { useTranslation } from "react-i18next";
-import '../../utils/I18n';
+import '../utils/I18n';
 
 interface ComponentProps { }
 const GameModes: React.FC<ComponentProps> = () => {

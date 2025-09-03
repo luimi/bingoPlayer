@@ -1,12 +1,12 @@
 import { IonButton, IonCard, IonCardContent, IonCol, IonContent, IonFab, IonFabButton, IonGrid, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonRow, useIonAlert, useIonRouter, useIonToast } from "@ionic/react";
 import { arrowBack } from "ionicons/icons";
 import React from "react";
-import { setGameMode } from "../../utils/BingoController";
-import InputGroup from "../../components/InputGroup";
-import Sketch from "../../components/Sketch";
-import ButtonAccent from "../../components/ButtonAccent";
+import { setGameMode } from "../utils/BingoController";
+import InputGroup from "../components/InputGroup";
+import Sketch from "../components/Sketch";
+import ButtonAccent from "../components/ButtonAccent";
 import { useTranslation } from "react-i18next";
-import '../../utils/I18n';
+import '../utils/I18n';
 
 interface ComponentProps { }
 const NewSketch: React.FC<ComponentProps> = () => {

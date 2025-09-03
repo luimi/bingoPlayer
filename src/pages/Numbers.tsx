@@ -1,14 +1,13 @@
 import { IonCard, IonCardHeader, IonCardTitle, IonCol, IonContent, IonFab, IonFabButton, IonFooter, IonGrid, IonIcon, IonLabel, IonPage, IonRow, IonTitle, IonToolbar, useIonRouter } from "@ionic/react";
 import { arrowBack } from "ionicons/icons";
-import { useBingoContext } from "../../contexts/BingoContext";
-import './styles.scss';
-import { setNumber, unsetNumber } from "../../utils/BingoController";
+import { useBingoContext } from "../contexts/BingoContext";
+import './styles/Numbers.scss';
+import { setNumber, unsetNumber } from "../utils/BingoController";
 import { Link } from "react-router-dom";
-import GameModeMini from "../../components/GameModeMini";
-import NumberGroup from "../../components/NumberGroup";
-import GameMode from "../../components/GameMode";
-import MiniBingoCard from "../../components/MiniBingoCard";
-import logo from '../../assets/logo-banner.png';
+import NumberGroup from "../components/NumberGroup";
+import GameMode from "../components/GameMode";
+import MiniBingoCard from "../components/MiniBingoCard";
+import logo from '../assets/logo-banner.png';
 
 interface ComponentProps { }
 const Numbers: React.FC<ComponentProps> = () => {
