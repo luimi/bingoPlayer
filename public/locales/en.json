@@ -43,5 +43,14 @@
             "corners": "Corners",
             "top": "Top"
         }
+    },
+    "welcome": {
+      "title": "Welcome",
+      "step1": "Welcome to Bingo Player! With this app, you can forget about pencils and mistakes. Follow these simple steps and get ready to shout BINGO!",
+      "step2": "You can use Bingo Player in any situation where bingo is being played in person with printed cards, whether it's a formal or casual event.",
+      "step3": "Create or scan your cards",
+      "step4": "Create and use the game modes",
+      "step5": "Mark the numbers that are being announced",
+      "step6": "Win by shouting Bingo!"
     }
 }

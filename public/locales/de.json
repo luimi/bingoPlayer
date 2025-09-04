@@ -43,5 +43,14 @@
             "corners": "Ecken",
             "top": "Oben"
         }
+    },
+    "welcome": {
+      "title": "Willkommen",
+      "step1": "Willkommen bei Bingo Player! Mit dieser App können Sie Stifte und Fehler vergessen. Befolgen Sie diese einfachen Schritte und machen Sie sich bereit, 'BINGO!' zu rufen.",
+      "step2": "Sie können Bingo Player in jeder Situation verwenden, in der Bingo persönlich mit gedruckten Karten gespielt wird, egal ob es sich um ein formelles oder informelles Ereignis handelt.",
+      "step3": "Erstellen oder scannen Sie Ihre Karten",
+      "step4": "Erstellen und verwenden Sie die Spielmodi",
+      "step5": "Markieren Sie die Nummern, die angesagt werden",
+      "step6": "Gewinnen Sie, indem Sie 'BINGO!' rufen."
     }
 }

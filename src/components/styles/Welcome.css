@@ -1,0 +1,12 @@
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide div {
+    padding: 50px;
+}
+.logo {
+    max-width: 200px;
+}

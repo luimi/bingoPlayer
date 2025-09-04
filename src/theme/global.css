@@ -19,6 +19,8 @@
   --ion-color-warning: var(--accent-color);
   --ion-color-danger: #d32f2f;
   --ion-color-primary: #03a9f4;
+  --swiper-navigation-color: var(--primary-bg-color);
+  --swiper-pagination-color: var(--primary-bg-color);
 }
 
 ion-content {
@@ -42,6 +44,9 @@ ion-content {
 
 ion-footer {
   background: var(--card-bg-color);
+}
+ion-toolbar {
+  --background: var(--primary-bg-color);
 }
 
 .logo {

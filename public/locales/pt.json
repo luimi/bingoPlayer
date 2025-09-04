@@ -43,5 +43,14 @@
             "corners": "Cantos",
             "top": "Topo"
         }
+    },
+    "welcome": {
+      "title": "Bem-vindo(a)",
+      "step1": "Bem-vindo(a) ao Bingo Player! Com este aplicativo, você vai se esquecer dos lápis e dos erros. Siga estes passos simples e prepare-se para gritar BINGO!",
+      "step2": "Você pode usar o Bingo Player em qualquer situação em que o bingo esteja sendo jogado presencialmente com cartelas impressas, independentemente de ser um evento formal ou casual.",
+      "step3": "Crie ou escaneie suas cartelas",
+      "step4": "Crie e use os modos de jogo",
+      "step5": "Marque os números que estão sendo anunciados",
+      "step6": "Ganhe gritando Bingo!"
     }
 }

@@ -43,5 +43,14 @@
             "corners": "Esquinas",
             "top": "Arriba"
         }
+    },
+    "welcome": {
+        "title": "Bienvenid@",
+        "step1": "¡Bienvenido a Bingo Player! Con esta app, te olvidarás de los lápices y los errores. Sigue estos sencillos pasos y prepárate para cantar ¡BINGO!",
+        "step2": "Puedes usar Bingo Player en cualquier situación en la que se esté jugando bingo de forma presencial con cartones impresos, sin importar si es un evento formal o casual.",
+        "step3": "Crea o escanea tus cartones",
+        "step4": "Crea y usa los modos de juego",
+        "step5": "Marca los número que se estén anunciando",
+        "step6": "Gana gritando Bingo!"
     }
 }

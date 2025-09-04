@@ -1,4 +1,4 @@
-import { IonContent, IonIcon, IonPage } from '@ionic/react';
+import { IonContent, IonIcon, IonPage, useIonModal } from '@ionic/react';
 import OptionWrapper from '../components/OptionWrapper';
 import { refresh, trash } from 'ionicons/icons';
 import NumberBoardMini from '../components/NumberBoardMini';
@@ -11,9 +11,21 @@ import logo from '../assets/logo-banner.png';
 import { useTranslation } from 'react-i18next';
 import '../utils/I18n';
 import { gaEvent } from '../utils/analytics';
+import Welcome from '../components/Welcome';
+import { useEffect } from 'react';
 
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation();
+  const [present, dismiss] = useIonModal(Welcome, {dismiss: () => {
+    dismiss()
+  }});
+  useEffect(() => {
+    if(!localStorage.getItem("welcome")) {
+      setTimeout(() => {
+        present();
+      }, 500);
+    }
+  }, [])
   return (
     <IonPage>
       <IonContent>

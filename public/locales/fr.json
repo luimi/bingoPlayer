@@ -43,5 +43,14 @@
             "corners": "Coins",
             "top": "Haut"
         }
+    },
+    "welcome": {
+      "title": "Bienvenue",
+      "step1": "Bienvenue sur Bingo Player ! Avec cette application, vous oublierez les crayons et les erreurs. Suivez ces étapes simples et préparez-vous à crier BINGO !",
+      "step2": "Vous pouvez utiliser Bingo Player dans n'importe quelle situation où le bingo est joué en personne avec des cartes imprimées, qu'il s'agisse d'un événement formel ou décontracté.",
+      "step3": "Créez ou scannez vos cartes",
+      "step4": "Créez et utilisez les modes de jeu",
+      "step5": "Marquez les numéros qui sont annoncés",
+      "step6": "Gagnez en criant Bingo !"
     }
 }
