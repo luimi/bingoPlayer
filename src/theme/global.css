@@ -44,6 +44,7 @@ ion-content {
 
 ion-footer {
   background: var(--card-bg-color);
+  padding-bottom: var(--ion-safe-area-bottom);
 }
 ion-toolbar {
   --background: var(--primary-bg-color);

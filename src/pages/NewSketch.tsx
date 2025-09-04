@@ -1,4 +1,4 @@
-import { IonButton, IonCard, IonCardContent, IonCol, IonContent, IonFab, IonFabButton, IonGrid, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonRow, useIonAlert, useIonRouter, useIonToast } from "@ionic/react";
+import { IonButton, IonCard, IonCardContent, IonCol, IonContent, IonFab, IonFabButton, IonFooter, IonGrid, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonRow, useIonAlert, useIonRouter, useIonToast } from "@ionic/react";
 import { arrowBack } from "ionicons/icons";
 import React from "react";
 import { setGameMode } from "../utils/BingoController";
@@ -57,6 +57,7 @@ const NewSketch: React.FC<ComponentProps> = () => {
                 </div>
 
             </IonContent>
+            <IonFooter></IonFooter>
         </IonPage>
     );
 };
