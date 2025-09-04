@@ -10,3 +10,7 @@
 .logo {
     max-width: 200px;
 }
+
+ion-toolbar {
+    --color: var(--text-color-light);
+}
