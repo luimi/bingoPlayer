@@ -5,7 +5,8 @@
             "button": "Alles löschen"
         },
         "gameMode": {
-            "title": "Spielmodus"
+            "title": "Spielmodus",
+            "button": "Ändern"
         },
         "currentGame": {
             "title": "Aktuelles Spiel",

@@ -5,7 +5,8 @@
             "button": "সব মুছে ফেলুন"
         },
         "gameMode": {
-            "title": "খেলার ধরণ"
+            "title": "খেলার ধরণ",
+            "button": "পরিবর্তন করুন"
         },
         "currentGame": {
             "title": "বর্তমান খেলা",

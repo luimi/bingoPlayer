@@ -5,7 +5,8 @@
             "button": "Tout effacer"
         },
         "gameMode": {
-            "title": "Mode de jeu"
+            "title": "Mode de jeu",
+            "button": "Modifier"
         },
         "currentGame": {
             "title": "Jeu actuel",

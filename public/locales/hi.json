@@ -5,7 +5,8 @@
             "button": "सब हटा दें"
         },
         "gameMode": {
-            "title": "खेल मोड"
+            "title": "खेल मोड",
+            "button": "संशोधित करें"
         },
         "currentGame": {
             "title": "वर्तमान खेल",

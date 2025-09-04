@@ -5,7 +5,8 @@
             "button": "Очистить всё"
         },
         "gameMode": {
-            "title": "Режим игры"
+            "title": "Режим игры",
+            "button": "Изменить"
         },
         "currentGame": {
             "title": "Текущая игра",

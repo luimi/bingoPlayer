@@ -17,41 +17,49 @@ const defaultGameModes = (t: any) => {
             name: "full",
             title: t("bingoController.gameModes.full"),
             sketch: patterns.full,
+            isDefault: true
         },
         {
             name: "x",
             title: "X",
             sketch: patterns.x,
+            isDefault: true
         },
         {
             name: "l",
             title: "L",
             sketch: patterns.l,
+            isDefault: true
         },
         {
             name: "t",
             title: "T",
             sketch: patterns.t,
+            isDefault: true
         },
         {
             name: "h",
             title: "H",
             sketch: patterns.h,
+            isDefault: true
         },
         {
             name: "i",
             title: "I",
             sketch: patterns.i,
+            isDefault: true
         },
         {
             name: "corners",
             title: t("bingoController.gameModes.corners"),
             sketch: patterns.corners,
+            isDefault: true
         },
         {
             name: "top",
             title: t("bingoController.gameModes.top"),
             sketch: patterns.top,
+            isDefault: true
         },
     ]
 }
@@ -115,6 +123,16 @@ export const setGameMode = (gameMode: any, t: any) => {
     customGameModes.push(gameMode)
     localStorage.setItem(local.customGameModes, JSON.stringify(customGameModes))
     context.setGameModes([...gameModes, gameMode])
+    return true
+}
+
+export const removeGameMode = (gameMode: any, t: any) => {
+    let customGameModes = JSON.parse(localStorage.getItem(local.customGameModes)!)
+    customGameModes = customGameModes.filter((gm: any) => gm.name !== gameMode.name)
+    const gameModes = [...defaultGameModes(t), ...customGameModes];
+    localStorage.setItem(local.customGameModes, JSON.stringify(customGameModes))
+    context.setGameModes(gameModes)
+    if(context.gameMode === gameMode.name) setCurrentGameMode("full")
     return true
 }
 export const setCurrentGameMode = (gameMode: string) => {

@@ -5,7 +5,8 @@
             "button": "مسح الكل"
         },
         "gameMode": {
-            "title": "وضع اللعب"
+            "title": "وضع اللعب",
+            "button": "تعديل"
         },
         "currentGame": {
             "title": "اللعبة الحالية",

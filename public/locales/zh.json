@@ -5,7 +5,8 @@
             "button": "全部清除"
         },
         "gameMode": {
-            "title": "游戏模式"
+            "title": "游戏模式",
+            "button": "修改"
         },
         "currentGame": {
             "title": "当前游戏",

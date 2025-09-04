@@ -1,6 +1,6 @@
 import { IonContent, IonIcon, IonPage, useIonModal } from '@ionic/react';
 import OptionWrapper from '../components/OptionWrapper';
-import { refresh, trash } from 'ionicons/icons';
+import { close, pencil, refresh, trash } from 'ionicons/icons';
 import NumberBoardMini from '../components/NumberBoardMini';
 import GameModes from '../components/GameModes';
 import { clearCards, clearNumbers, setNumber } from '../utils/BingoController';
@@ -12,13 +12,14 @@ import { useTranslation } from 'react-i18next';
 import '../utils/I18n';
 import { gaEvent } from '../utils/analytics';
 import Welcome from '../components/Welcome';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [present, dismiss] = useIonModal(Welcome, {dismiss: () => {
     dismiss()
   }});
+  const [isEditingGameModes, setIsEditingGameModes] = useState(false)
   useEffect(() => {
     if(!localStorage.getItem("welcome")) {
       setTimeout(() => {
@@ -39,8 +40,10 @@ const Home: React.FC = () => {
         </SectionWrapper>
 
         {/* TIPOS DE JUEGO */}
-        <SectionWrapper  title={t('home.gameMode.title')}>
-          <GameModes  />
+        <SectionWrapper  title={t('home.gameMode.title')} actionTitle={t('home.gameMode.button')} icon={<IonIcon icon={isEditingGameModes?close:pencil}/>} action={() => {
+          setIsEditingGameModes(!isEditingGameModes)
+        }}>
+          <GameModes  isEditing={isEditingGameModes}/>
         </SectionWrapper>
 
         {/* JUEGO ACTUAL */}

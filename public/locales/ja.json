@@ -5,7 +5,8 @@
             "button": "すべてクリア"
         },
         "gameMode": {
-            "title": "ゲームモード"
+            "title": "ゲームモード",
+            "button": "変更"
         },
         "currentGame": {
             "title": "現在のゲーム",

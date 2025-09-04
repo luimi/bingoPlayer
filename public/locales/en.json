@@ -5,7 +5,8 @@
             "button": "Clear All"
         },
         "gameMode": {
-            "title": "Game Mode"
+            "title": "Game Mode",
+            "button": "Modify"
         },
         "currentGame": {
             "title": "Current Game",
