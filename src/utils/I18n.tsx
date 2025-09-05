@@ -9,8 +9,9 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    supportedLngs: ['ar','bn','de','en','es','fr','hi','ja','pt','ru','ur','zh'],
     fallbackLng: 'en', // Idioma de respaldo si la detección falla
-    debug: false, // Habilitar depuración en la consola
+    debug: true, // Habilitar depuración en la consola
     interpolation: {
       escapeValue: false, // React ya se encarga de escapar los valores
     },
@@ -18,8 +19,10 @@ i18n
       loadPath: '/locales/{{lng}}.json', // Ruta a los archivos de traducción
     },
     detection: {
-      order: ['navigator', 'querystring', 'cookie', 'localStorage', 'sessionStorage', 'htmlTag', 'path', 'subdomain'],
-      caches: ['localStorage', 'cookie'],
+      order: [
+        'navigator'
+      ],
+      caches: ['localStorage'],
     },
   });
 
