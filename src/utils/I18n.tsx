@@ -11,7 +11,7 @@ i18n
   .init({
     supportedLngs: ['ar','bn','de','en','es','fr','hi','ja','pt','ru','ur','zh'],
     fallbackLng: 'en', // Idioma de respaldo si la detección falla
-    debug: true, // Habilitar depuración en la consola
+    debug: false, // Habilitar depuración en la consola
     interpolation: {
       escapeValue: false, // React ya se encarga de escapar los valores
     },
