@@ -1,0 +1,18 @@
+ion-modal.campaign {
+    --width: fit-content;
+    --min-width: 250px;
+    --max-width: 80%;
+    --max-height: 80%;
+    --height: fit-content;
+    --border-radius: 6px;
+    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+    --background: #111
+}
+ion-modal.campaign img{
+    max-width: 80vw;
+    max-height: 80vh;
+}
+ion-modal.campaign div {
+    display: flex;
+    justify-content: center;
+}

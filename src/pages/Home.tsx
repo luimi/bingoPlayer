@@ -13,22 +13,36 @@ import '../utils/I18n';
 import { gaEvent } from '../utils/analytics';
 import Welcome from '../components/Welcome';
 import { useEffect, useState } from 'react';
+import { getCampaign, getUserID } from '../utils/partnerController';
+import PartnerCampaign from '../components/PartnerCampaign';
 
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [isEditingGameModes, setIsEditingGameModes] = useState(false)
   const [isWelcomeOpen, setIsWelcomeOpen] = useState(false)
+  const [campaign, setCampaign] = useState()
   useEffect(() => {
     if (!localStorage.getItem("welcome")) {
       setIsWelcomeOpen(true)
-    }
+    } else getPartnerCampaign();
   }, [])
   const dismiss = () => {
     setIsWelcomeOpen(false)
   }
+  const getPartnerCampaign = async () => {
+    const id: any = getUserID();
+    const result = await getCampaign(id);
+    if(result && result.success) {
+      setCampaign(result)
+    }
+  }
+  const removeCampaign = () => {
+    setCampaign(undefined)
+  }
   return (
     <IonPage>
       <IonContent>
+        
         <img className="logo" src={logo}/>
         {/* CARTONES */}
         <SectionWrapper title={t('home.cards.title')} actionTitle={t('home.cards.button')} icon={<IonIcon icon={trash} />} action={() => {
@@ -56,6 +70,7 @@ const Home: React.FC = () => {
         </SectionWrapper>
         
         <Welcome dismiss={dismiss} isOpen={isWelcomeOpen}/>
+        <PartnerCampaign campaign={campaign} dismiss={removeCampaign} />
 
       </IonContent>
 
