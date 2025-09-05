@@ -1,4 +1,4 @@
-import { IonContent, IonIcon, IonPage, useIonModal } from '@ionic/react';
+import { IonContent, IonIcon, IonModal, IonPage, useIonModal } from '@ionic/react';
 import OptionWrapper from '../components/OptionWrapper';
 import { close, pencil, refresh, trash } from 'ionicons/icons';
 import NumberBoardMini from '../components/NumberBoardMini';
@@ -16,23 +16,22 @@ import { useEffect, useState } from 'react';
 
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const [present, dismiss] = useIonModal(Welcome, {dismiss: () => {
-    dismiss()
-  }});
   const [isEditingGameModes, setIsEditingGameModes] = useState(false)
+  const [isWelcomeOpen, setIsWelcomeOpen] = useState(false)
   useEffect(() => {
-    if(!localStorage.getItem("welcome")) {
-      setTimeout(() => {
-        present();
-      }, 500);
+    if (!localStorage.getItem("welcome")) {
+      setIsWelcomeOpen(true)
     }
   }, [])
+  const dismiss = () => {
+    setIsWelcomeOpen(false)
+  }
   return (
     <IonPage>
       <IonContent>
         <img className="logo" src={logo}/>
         {/* CARTONES */}
-        <SectionWrapper title={t('home.cards.title')} actionTitle={t('home.cards.button')} icon={<IonIcon icon={trash}/>} action={() => {
+        <SectionWrapper title={t('home.cards.title')} actionTitle={t('home.cards.button')} icon={<IonIcon icon={trash} />} action={() => {
           gaEvent("clear-cards")
           clearCards()
         }}>
@@ -40,14 +39,14 @@ const Home: React.FC = () => {
         </SectionWrapper>
 
         {/* TIPOS DE JUEGO */}
-        <SectionWrapper  title={t('home.gameMode.title')} actionTitle={t('home.gameMode.button')} icon={<IonIcon icon={isEditingGameModes?close:pencil}/>} action={() => {
+        <SectionWrapper title={t('home.gameMode.title')} actionTitle={t('home.gameMode.button')} icon={<IonIcon icon={isEditingGameModes ? close : pencil} />} action={() => {
           setIsEditingGameModes(!isEditingGameModes)
         }}>
-          <GameModes  isEditing={isEditingGameModes}/>
+          <GameModes isEditing={isEditingGameModes} />
         </SectionWrapper>
 
         {/* JUEGO ACTUAL */}
-        <SectionWrapper  title={t('home.currentGame.title')} actionTitle={t('home.currentGame.button')} icon={<IonIcon icon={refresh}/>} action={() => {
+        <SectionWrapper title={t('home.currentGame.title')} actionTitle={t('home.currentGame.button')} icon={<IonIcon icon={refresh} />} action={() => {
           gaEvent("clear-numbers")
           clearNumbers()
         }}>
@@ -56,8 +55,10 @@ const Home: React.FC = () => {
           </Link>
         </SectionWrapper>
         
+        <Welcome dismiss={dismiss} isOpen={isWelcomeOpen}/>
+
       </IonContent>
-      
+
     </IonPage>
   );
 };

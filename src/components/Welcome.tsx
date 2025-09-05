@@ -1,5 +1,5 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import React, { FC } from 'react'
+import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonModal, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import React, { FC, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
@@ -17,20 +17,24 @@ import { close } from 'ionicons/icons';
 
 
 interface WelcomeProps {
-    dismiss: any
+    dismiss: any;
+    isOpen: boolean;
 }
 
-const Welcome: FC<WelcomeProps> = ({ dismiss }) => {
+const Welcome: FC<WelcomeProps> = ({ dismiss, isOpen = false }) => {
     const { t, i18n } = useTranslation();
-    localStorage.setItem("welcome", "true");
+    useEffect(() => {
+        if(isOpen) localStorage.setItem("welcome", "true");
+    }, [isOpen])
+    
     return (
-        <IonPage>
+        <IonModal isOpen={isOpen}>
             <IonHeader>
                 <IonToolbar>
                     <IonTitle>{t("welcome.title")}</IonTitle>
                     <IonButtons slot="primary">
                         <IonButton onClick={dismiss}>
-                            <IonIcon slot="icon-only" icon={close}></IonIcon>
+                            <IonIcon slot="icon-only" icon={close} className='close'></IonIcon>
                         </IonButton>
                     </IonButtons>
                 </IonToolbar>
@@ -83,7 +87,7 @@ const Welcome: FC<WelcomeProps> = ({ dismiss }) => {
                     </SwiperSlide>
                 </Swiper>
             </IonContent>
-        </IonPage>
+        </IonModal>
     )
 }
 

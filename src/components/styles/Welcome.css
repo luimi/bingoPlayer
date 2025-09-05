@@ -14,3 +14,6 @@
 ion-toolbar {
     --color: var(--text-color-light);
 }
+ion-icon.close {
+    color: var(--text-color-light);
+}
