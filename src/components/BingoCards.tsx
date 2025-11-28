@@ -3,13 +3,14 @@ import { useBingoContext } from "../contexts/BingoContext";
 import { Link } from "react-router-dom";
 import { add, addCircleOutline, camera } from "ionicons/icons";
 import { useRef, useState } from "react";
-import { getCardsWithIA } from "../utils/Gemini";
 import { setCard, setCards } from "../utils/BingoController";
 import MiniBingoCard from "./MiniBingoCard";
 import ItemNew from "./ItemNew";
 import '../utils/I18n';
 import { useTranslation } from "react-i18next";
 import { gaEvent } from "../utils/analytics";
+import Scan from "./Scan";
+import { getMultiScan } from "../utils/serverController";
 
 interface ComponentProps { }
 const BingoCards: React.FC<ComponentProps> = () => {
@@ -18,14 +19,16 @@ const BingoCards: React.FC<ComponentProps> = () => {
     const [present] = useIonToast();
     const inputFileRef = useRef<HTMLInputElement>(null)
     const [loading, setLoading] = useState(false)
+    const [scan, setScan] = useState(false)
     const router = useIonRouter();
     const handleInputChange = async (e: any) => {
         setLoading(true)
-        const newCards = await getCardsWithIA(e)
-        
+        //const newCards = await getCardsWithIA(e)
+        const newCards = await getMultiScan(e)
+
         setLoading(false)
-        if (newCards && newCards.length > 0) {
-            setCards(newCards)
+        if (newCards && newCards.success) {
+            setCards(newCards.data)
         } else {
             present({
                 message: t("bingoCards.error.cardsWithAI"),
@@ -35,6 +38,14 @@ const BingoCards: React.FC<ComponentProps> = () => {
             })
         }
         if (newCards) gaEvent(`scan-${newCards.length}`)
+    }
+
+    const scanMultiple = () => {
+        if (!loading) inputFileRef.current?.click();
+        setScan(false)
+    }
+    const scanOne = () => {
+
     }
     return (
         <IonGrid>
@@ -47,14 +58,23 @@ const BingoCards: React.FC<ComponentProps> = () => {
                     </IonCol>
                 ))}
                 <IonCol size="12" className="ion-text-center">
-                    <ItemNew description={t("bingoCards.cards")} buttons={[{ icon: <IonIcon icon={add} />, action: () => router.push("/card") }, {
-                        icon: <>{loading ? <IonSpinner></IonSpinner> : <IonIcon icon={camera} />}</>, action: () => {
-                            if (!loading) inputFileRef.current?.click()
+                    <ItemNew description={t("bingoCards.cards")} buttons={[
+                        {
+                            icon: <IonIcon icon={add} />,
+                            action: () => router.push("/card")
+                        },
+                        {
+                            icon: <>{loading ? <IonSpinner></IonSpinner> : <IonIcon icon={camera} />}</>,
+                            action: () => {
+                                setScan(true);
+                            }
                         }
-                    }]} />
-                    <input type="file" accept="image/*" className="ion-hide" ref={inputFileRef} capture="environment" onChange={handleInputChange} />
+                    ]} />
+
                 </IonCol>
             </IonRow>
+            <Scan dismiss={() => setScan(false)} isOpen={scan} scanOne={scanOne} scanMultiple={scanMultiple}/>
+            <input type="file" accept="image/*" className="ion-hide" ref={inputFileRef} capture="environment" onChange={handleInputChange} />
         </IonGrid>
     );
 };
