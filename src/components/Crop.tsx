@@ -45,7 +45,7 @@ const CropModal: FC<CropProps> = ({ image, dismiss, isOpen, done }) => {
         <IonModal isOpen={isOpen}>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>{t("scan.title")}</IonTitle>
+                    <IonTitle>{t("crop.title")}</IonTitle>
                     <IonButtons slot="primary">
                         <IonButton onClick={dismiss}>
                             <IonIcon slot="icon-only" icon={close} className='close'></IonIcon>

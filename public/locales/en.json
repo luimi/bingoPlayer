@@ -61,5 +61,8 @@
         "step3": "We understand the confusion. We previously offered this feature broadly, but multi-card scanning is an intensive process that relies on our AI technology. The operational costs associated with AI processing require us to limit its access to the PRO subscription.",
         "scan1": "Scan 1 Card",
         "scanMultiple": "Scan Multiple Cards"
+    },
+    "crop": {
+        "title": "Crop Image"
     }
 }

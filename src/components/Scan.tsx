@@ -4,6 +4,9 @@ import React, { FC } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper,SwiperSlide } from 'swiper/react';
+import scan_one from '../assets/scan/scan-one.png';
+import scan_multiple from '../assets/scan/scan-multiple.png';
+import scan_explain from '../assets/scan/scan-explain.png';
 
 interface ScanProps {
     dismiss: any;
@@ -38,16 +41,19 @@ const Scan: FC<ScanProps> = ({ dismiss, isOpen = false, scanOne, scanMultiple })
                 >
                     <SwiperSlide>
                         <div>
+                            <img src={scan_one} style={{maxWidth: 200}}/>
                             <p>{t("scan.step1")}</p>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div>
+                            <img src={scan_multiple} style={{maxWidth: 200}}/>
                             <p>{t("scan.step2")}</p>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div>
+                            <img src={scan_explain} style={{maxWidth: 200}}/>
                             <p>{t("scan.step3")}</p>
                         </div>
                     </SwiperSlide>
