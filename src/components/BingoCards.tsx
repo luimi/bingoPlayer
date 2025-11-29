@@ -10,25 +10,30 @@ import '../utils/I18n';
 import { useTranslation } from "react-i18next";
 import { gaEvent } from "../utils/analytics";
 import Scan from "./Scan";
-import { getMultiScan } from "../utils/serverController";
+import { getMultiScan, getScan } from "../utils/serverController";
+import CropModal from "./Crop";
 
 interface ComponentProps { }
 const BingoCards: React.FC<ComponentProps> = () => {
     const { cards, numbers, order }: { cards: Array<Array<Array<number>>>, numbers: Array<number>, order: any } = useBingoContext();
     const { t } = useTranslation();
     const [present] = useIonToast();
-    const inputFileRef = useRef<HTMLInputElement>(null)
+    const scanMultipleRef = useRef<HTMLInputElement>(null)
+    const scanOneRef = useRef<HTMLInputElement>(null)
     const [loading, setLoading] = useState(false)
     const [scan, setScan] = useState(false)
+    const [crop, setCrop] = useState<any>(undefined)
     const router = useIonRouter();
-    const handleInputChange = async (e: any) => {
-        setLoading(true)
-        //const newCards = await getCardsWithIA(e)
+    const resolveScanMultiple = async (e: any) => {
+        setScan(false)
+        setLoading(true);
+
         const newCards = await getMultiScan(e)
 
-        setLoading(false)
+        setLoading(false);
         if (newCards && newCards.success) {
             setCards(newCards.data)
+            gaEvent(`scan-${newCards.length}`)
         } else {
             present({
                 message: t("bingoCards.error.cardsWithAI"),
@@ -37,16 +42,31 @@ const BingoCards: React.FC<ComponentProps> = () => {
                 color: 'danger',
             })
         }
-        if (newCards) gaEvent(`scan-${newCards.length}`)
     }
 
-    const scanMultiple = () => {
-        if (!loading) inputFileRef.current?.click();
+    const resolveScanOne = async (blob: any) => {
+        setCrop(undefined)
+        setLoading(true);
+        let result = await getScan(blob);
+        setLoading(false);
+        if (result.success) {
+            setCards([result.data])
+            gaEvent(`scan-1`)
+        } else {
+            present({
+                message: t("bingoCards.error.cardsWithAI"),
+                duration: 3000,
+                position: 'top',
+                color: 'danger',
+            })
+        }
+    }
+
+    const scanOne = (e: any) => {
         setScan(false)
+        setCrop(e.target.files[0])
     }
-    const scanOne = () => {
 
-    }
     return (
         <IonGrid>
             <IonRow>
@@ -73,8 +93,18 @@ const BingoCards: React.FC<ComponentProps> = () => {
 
                 </IonCol>
             </IonRow>
-            <Scan dismiss={() => setScan(false)} isOpen={scan} scanOne={scanOne} scanMultiple={scanMultiple}/>
-            <input type="file" accept="image/*" className="ion-hide" ref={inputFileRef} capture="environment" onChange={handleInputChange} />
+            {crop && <CropModal dismiss={() => setCrop(undefined)} isOpen={crop !== undefined} image={crop} done={resolveScanOne} />}
+            <Scan
+                dismiss={() => setScan(false)}
+                isOpen={scan}
+                scanOne={() => {
+                    if (!loading) scanOneRef.current?.click();
+                }}
+                scanMultiple={() => {
+                    if (!loading) scanMultipleRef.current?.click();
+                }} />
+            <input type="file" accept="image/*" className="ion-hide" ref={scanOneRef} capture="environment" onChange={scanOne} />
+            <input type="file" accept="image/*" className="ion-hide" ref={scanMultipleRef} capture="environment" onChange={resolveScanMultiple} />
         </IonGrid>
     );
 };

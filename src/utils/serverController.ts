@@ -2,13 +2,17 @@
 const server = import.meta.env.VITE_BINGOPLAYER_SERVER
 
 export const getMultiScan = async (fileInput: any) => {
-    return await scanImage('multipleScan', fileInput);
+    const file = fileInput.target.files[0]
+    return await scanImage('multipleScan', file, file.name);
 }
 
-const scanImage = async (path: string , fileInput: any) => {
+export const getScan = async (file: any) => {
+    return await scanImage('scan', file, "scan.png");
+}
+
+const scanImage = async (path: string , file: any, name: string) => {
     const formdata = new FormData();
-    const file = fileInput.target.files[0];
-    formdata.append("image", file, file.name);
+    formdata.append("image", file, name);
 
     const requestOptions: any = {
         method: "POST",
