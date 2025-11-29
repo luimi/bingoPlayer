@@ -46,12 +46,21 @@
         }
     },
     "welcome": {
-      "title": "Bem-vindo(a)",
-      "step1": "Bem-vindo(a) ao Bingo Player! Com este aplicativo, você vai se esquecer dos lápis e dos erros. Siga estes passos simples e prepare-se para gritar BINGO!",
-      "step2": "Você pode usar o Bingo Player em qualquer situação em que o bingo esteja sendo jogado presencialmente com cartelas impressas, independentemente de ser um evento formal ou casual.",
-      "step3": "Crie ou escaneie suas cartelas",
-      "step4": "Crie e use os modos de jogo",
-      "step5": "Marque os números que estão sendo anunciados",
-      "step6": "Ganhe gritando Bingo!"
+        "title": "Bem-vindo(a)",
+        "step1": "Bem-vindo(a) ao Bingo Player! Com este aplicativo, você vai se esquecer dos lápis e dos erros. Siga estes passos simples e prepare-se para gritar BINGO!",
+        "step2": "Você pode usar o Bingo Player em qualquer situação em que o bingo esteja sendo jogado presencialmente com cartelas impressas, independentemente de ser um evento formal ou casual.",
+        "step3": "Crie ou escaneie suas cartelas",
+        "step4": "Crie e use os modos de jogo",
+        "step5": "Marque os números que estão sendo anunciados",
+        "step6": "Ganhe gritando Bingo!"
+    },
+    "scan": {
+        "title": "Digitalizar Cartões",
+        "step1": "Digitalize seus cartões gratuitamente, um por um. Para garantir a precisão, concentre-se apenas na caixa que contém os números.",
+        "step2": "Por que não simplificar? Faça upgrade para PRO e digitalize vários cartões de uma vez. Uma única foto é suficiente para reconhecer todos os seus números.",
+        "step3": "Entendemos a confusão. Anteriormente, oferecíamos este recurso de forma ampla, mas a digitalização multi-cartão é um processo intensivo que depende da nossa tecnologia de IA. Os custos operacionais associados ao processamento de IA exigem que limitemos seu acesso à assinatura PRO."
+    },
+    "crop": {
+        "title": "Cortar Imagem"
     }
 }

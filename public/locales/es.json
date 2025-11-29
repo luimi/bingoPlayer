@@ -53,5 +53,14 @@
         "step4": "Crea y usa los modos de juego",
         "step5": "Marca los número que se estén anunciando",
         "step6": "Gana gritando Bingo!"
+    },
+    "scan": {
+        "title": "Escanear Tarjetas",
+        "step1": "Escanea tus tarjetas gratis, una por una. Para asegurar la precisión, enfócate únicamente en el recuadro que contiene los números.",
+        "step2": "¿Por qué no simplificarlo? Actualiza a PRO y escanea múltiples tarjetas a la vez. Una sola foto es suficiente para reconocer todos tus números.",
+        "step3": "Comprendemos la confusión. Anteriormente ofrecimos esta característica de forma amplia, pero el escaneo de múltiples tarjetas es un proceso intensivo que depende de nuestra tecnología de IA. Los costos operativos asociados con el procesamiento de IA requieren que limitemos su acceso a la suscripción PRO."
+    },
+    "crop": {
+        "title": "Recortar Imagen"
     }
 }

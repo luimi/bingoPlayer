@@ -46,12 +46,21 @@
         }
     },
     "welcome": {
-      "title": "Willkommen",
-      "step1": "Willkommen bei Bingo Player! Mit dieser App können Sie Stifte und Fehler vergessen. Befolgen Sie diese einfachen Schritte und machen Sie sich bereit, 'BINGO!' zu rufen.",
-      "step2": "Sie können Bingo Player in jeder Situation verwenden, in der Bingo persönlich mit gedruckten Karten gespielt wird, egal ob es sich um ein formelles oder informelles Ereignis handelt.",
-      "step3": "Erstellen oder scannen Sie Ihre Karten",
-      "step4": "Erstellen und verwenden Sie die Spielmodi",
-      "step5": "Markieren Sie die Nummern, die angesagt werden",
-      "step6": "Gewinnen Sie, indem Sie 'BINGO!' rufen."
+        "title": "Willkommen",
+        "step1": "Willkommen bei Bingo Player! Mit dieser App können Sie Stifte und Fehler vergessen. Befolgen Sie diese einfachen Schritte und machen Sie sich bereit, 'BINGO!' zu rufen.",
+        "step2": "Sie können Bingo Player in jeder Situation verwenden, in der Bingo persönlich mit gedruckten Karten gespielt wird, egal ob es sich um ein formelles oder informelles Ereignis handelt.",
+        "step3": "Erstellen oder scannen Sie Ihre Karten",
+        "step4": "Erstellen und verwenden Sie die Spielmodi",
+        "step5": "Markieren Sie die Nummern, die angesagt werden",
+        "step6": "Gewinnen Sie, indem Sie 'BINGO!' rufen."
+    },
+    "scan": {
+        "title": "Karten scannen",
+        "step1": "Scannen Sie Ihre Karten kostenlos, einzeln. Um die Genauigkeit zu gewährleisten, konzentrieren Sie sich ausschließlich auf das Feld, das die Nummern enthält.",
+        "step2": "Warum nicht vereinfachen? Upgraden Sie auf PRO und scannen Sie mehrere Karten gleichzeitig. Ein einziges Foto reicht aus, um alle Ihre Nummern zu erkennen.",
+        "step3": "Wir verstehen die Verwirrung. Wir haben diese Funktion zuvor allgemein angeboten, aber das Scannen mehrerer Karten ist ein intensiver Prozess, der auf unserer KI-Technologie basiert. Die Betriebskosten im Zusammenhang mit der KI-Verarbeitung erfordern, dass wir den Zugang auf das PRO-Abonnement beschränken."
+    },
+    "crop": {
+        "title": "Bild zuschneiden"
     }
 }

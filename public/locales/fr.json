@@ -46,12 +46,21 @@
         }
     },
     "welcome": {
-      "title": "Bienvenue",
-      "step1": "Bienvenue sur Bingo Player ! Avec cette application, vous oublierez les crayons et les erreurs. Suivez ces étapes simples et préparez-vous à crier BINGO !",
-      "step2": "Vous pouvez utiliser Bingo Player dans n'importe quelle situation où le bingo est joué en personne avec des cartes imprimées, qu'il s'agisse d'un événement formel ou décontracté.",
-      "step3": "Créez ou scannez vos cartes",
-      "step4": "Créez et utilisez les modes de jeu",
-      "step5": "Marquez les numéros qui sont annoncés",
-      "step6": "Gagnez en criant Bingo !"
+        "title": "Bienvenue",
+        "step1": "Bienvenue sur Bingo Player ! Avec cette application, vous oublierez les crayons et les erreurs. Suivez ces étapes simples et préparez-vous à crier BINGO !",
+        "step2": "Vous pouvez utiliser Bingo Player dans n'importe quelle situation où le bingo est joué en personne avec des cartes imprimées, qu'il s'agisse d'un événement formel ou décontracté.",
+        "step3": "Créez ou scannez vos cartes",
+        "step4": "Créez et utilisez les modes de jeu",
+        "step5": "Marquez les numéros qui sont annoncés",
+        "step6": "Gagnez en criant Bingo !"
+    },
+    "scan": {
+        "title": "Scanner des Cartes",
+        "step1": "Scannez vos cartes gratuitement, une par une. Pour garantir la précision, concentrez-vous uniquement sur la zone contenant les numéros.",
+        "step2": "Pourquoi ne pas simplifier ? Passez à PRO et scannez plusieurs cartes à la fois. Une seule photo suffit pour reconnaître tous vos numéros.",
+        "step3": "Nous comprenons la confusion. Nous proposions auparavant cette fonctionnalité largement, mais le scan multi-cartes est un processus intensif qui repose sur notre technologie d'IA. Les coûts opérationnels associés au traitement par IA nous obligent à limiter son accès à l'abonnement PRO."
+    },
+    "crop": {
+        "title": "Recadrer l'Image"
     }
 }
