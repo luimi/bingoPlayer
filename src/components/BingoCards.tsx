@@ -12,6 +12,8 @@ import { gaEvent } from "../utils/analytics";
 import Scan from "./Scan";
 import { getMultiScan, getScan } from "../utils/serverController";
 import CropModal from "./Crop";
+import { InterstitialAd } from "@capgo/capacitor-admob";
+import { Capacitor } from "@capacitor/core";
 
 interface ComponentProps { }
 const BingoCards: React.FC<ComponentProps> = () => {
@@ -52,6 +54,8 @@ const BingoCards: React.FC<ComponentProps> = () => {
         if (result.success) {
             setCards([result.data])
             gaEvent(`scan-1`)
+            showAd();
+
         } else {
             present({
                 message: t("bingoCards.error.cardsWithAI"),
@@ -65,6 +69,15 @@ const BingoCards: React.FC<ComponentProps> = () => {
     const scanOne = (e: any) => {
         setScan(false)
         setCrop(e.target.files[0])
+    }
+
+    const showAd = async () => {
+        const platform = Capacitor.getPlatform();
+        const interstitial = new InterstitialAd({
+            adUnitId: platform === 'ios' ? 'ca-app-pub-6931890428485350/6401003805' : 'ca-app-pub-6931890428485350/6644438586',
+        });
+        await interstitial.load();
+        await interstitial.show();
     }
 
     return (

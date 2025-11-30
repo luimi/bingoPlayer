@@ -12,6 +12,12 @@ PODS:
     - Capacitor
   - CapacitorStatusBar (7.0.1):
     - Capacitor
+  - CapgoCapacitorAdmob (7.4.8):
+    - Capacitor
+    - Google-Mobile-Ads-SDK (~> 11.0)
+  - Google-Mobile-Ads-SDK (11.13.0):
+    - GoogleUserMessagingPlatform (>= 1.1)
+  - GoogleUserMessagingPlatform (3.0.0)
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
@@ -21,6 +27,12 @@ DEPENDENCIES:
   - "CapacitorKeyboard (from `../../node_modules/@capacitor/keyboard`)"
   - CapacitorPluginSafeArea (from `../../node_modules/capacitor-plugin-safe-area`)
   - "CapacitorStatusBar (from `../../node_modules/@capacitor/status-bar`)"
+  - "CapgoCapacitorAdmob (from `../../node_modules/@capgo/capacitor-admob`)"
+
+SPEC REPOS:
+  trunk:
+    - Google-Mobile-Ads-SDK
+    - GoogleUserMessagingPlatform
 
 EXTERNAL SOURCES:
   Capacitor:
@@ -37,6 +49,8 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/capacitor-plugin-safe-area"
   CapacitorStatusBar:
     :path: "../../node_modules/@capacitor/status-bar"
+  CapgoCapacitorAdmob:
+    :path: "../../node_modules/@capgo/capacitor-admob"
 
 SPEC CHECKSUMS:
   Capacitor: 03bc7cbdde6a629a8b910a9d7d78c3cc7ed09ea7
@@ -46,7 +60,10 @@ SPEC CHECKSUMS:
   CapacitorKeyboard: 09fd91dcde4f8a37313e7f11bde553ad1ed52036
   CapacitorPluginSafeArea: 22031c3436269ca80fac90ec2c94bc7c1e59a81d
   CapacitorStatusBar: 6e7af040d8fc4dd655999819625cae9c2d74c36f
+  CapgoCapacitorAdmob: 167fcc00fd8e6fefba0a96741b8aeac4f3d10702
+  Google-Mobile-Ads-SDK: 14f57f2dc33532a24db288897e26494640810407
+  GoogleUserMessagingPlatform: f8d0cdad3ca835406755d0a69aa634f00e76d576
 
-PODFILE CHECKSUM: 58dc616b927ff1daef411abf1850c1f0bdc8d119
+PODFILE CHECKSUM: 9404457ba5c919e5a73eff043eec3b1bfdfdfb03
 
 COCOAPODS: 1.16.2

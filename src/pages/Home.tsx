@@ -15,16 +15,20 @@ import Welcome from '../components/Welcome';
 import { useEffect, useState } from 'react';
 import { getCampaign, getUserID } from '../utils/partnerController';
 import PartnerCampaign from '../components/PartnerCampaign';
+import { AdMob, InterstitialAd, MaxAdContentRating } from '@capgo/capacitor-admob';
+import { Capacitor } from '@capacitor/core';
 
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [isEditingGameModes, setIsEditingGameModes] = useState(false)
   const [isWelcomeOpen, setIsWelcomeOpen] = useState(false)
   const [campaign, setCampaign] = useState()
+  const platform = Capacitor.getPlatform();
   useEffect(() => {
     if (!localStorage.getItem("welcome")) {
       setIsWelcomeOpen(true)
     } else getPartnerCampaign();
+    initAdmob();
   }, [])
   const dismiss = () => {
     setIsWelcomeOpen(false)
@@ -32,18 +36,38 @@ const Home: React.FC = () => {
   const getPartnerCampaign = async () => {
     const id: any = getUserID();
     const result = await getCampaign(id);
-    if(result && result.success) {
+    if (result && result.success) {
       setCampaign(result)
     }
   }
   const removeCampaign = () => {
     setCampaign(undefined)
   }
+  const initAdmob = async () => {
+    await AdMob.start();
+    await AdMob.configRequest({
+      maxAdContentRating: MaxAdContentRating.T,
+      tagForChildDirectedTreatment: false,
+      tagForUnderAgeOfConsent: false,
+    });
+    
+    if(platform === 'ios') {
+      await AdMob.requestTrackingAuthorization();
+    }
+  }
+
+  const showAd = async () => {
+    const interstitial = new InterstitialAd({
+      adUnitId: platform === 'ios' ? 'ca-app-pub-6931890428485350/6475373035' : 'ca-app-pub-6931890428485350/2017253276',
+    });
+    await interstitial.load();
+    await interstitial.show();
+  }
   return (
     <IonPage>
       <IonContent>
-        
-        <img className="logo" src={logo}/>
+
+        <img className="logo" src={logo} />
         {/* CARTONES */}
         <SectionWrapper title={t('home.cards.title')} actionTitle={t('home.cards.button')} icon={<IonIcon icon={trash} />} action={() => {
           gaEvent("clear-cards")
@@ -61,15 +85,16 @@ const Home: React.FC = () => {
 
         {/* JUEGO ACTUAL */}
         <SectionWrapper title={t('home.currentGame.title')} actionTitle={t('home.currentGame.button')} icon={<IonIcon icon={refresh} />} action={() => {
-          gaEvent("clear-numbers")
-          clearNumbers()
+          gaEvent("clear-numbers");
+          clearNumbers();
+          showAd();
         }}>
           <Link to="/numbers">
             <NumberBoardMini />
           </Link>
         </SectionWrapper>
-        
-        <Welcome dismiss={dismiss} isOpen={isWelcomeOpen}/>
+
+        <Welcome dismiss={dismiss} isOpen={isWelcomeOpen} />
         <PartnerCampaign campaign={campaign} dismiss={removeCampaign} />
 
       </IonContent>
