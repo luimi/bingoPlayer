@@ -45,13 +45,13 @@ const Scan: FC<ScanProps> = ({ dismiss, isOpen = false, scanOne, scanMultiple })
                             <p>{t("scan.step1")}</p>
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide>
+                    <SwiperSlide className='ion-hide'>
                         <div>
                             <img src={scan_multiple} style={{maxWidth: 200}}/>
                             <p>{t("scan.step2")}</p>
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide>
+                    <SwiperSlide className='ion-hide'>
                         <div>
                             <img src={scan_explain} style={{maxWidth: 200}}/>
                             <p>{t("scan.step3")}</p>
@@ -70,7 +70,7 @@ const Scan: FC<ScanProps> = ({ dismiss, isOpen = false, scanOne, scanMultiple })
                                 </IonFabButton>
                             </IonFab>
                         </IonCol>
-                        <IonCol>
+                        <IonCol className='ion-hide'>
                             <IonFab horizontal="center">
                                 <IonFabButton color="warning" onClick={scanMultiple}>
                                     <IonIcon icon={imagesOutline}></IonIcon>
