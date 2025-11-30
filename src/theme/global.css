@@ -46,6 +46,7 @@ ion-footer {
   background: var(--card-bg-color);
   padding-bottom: var(--ion-safe-area-bottom);
 }
+
 ion-toolbar {
   --background: var(--primary-bg-color);
 }
@@ -262,6 +263,9 @@ ion-toolbar {
   justify-content: center;
   align-items: center;
   min-height: 40px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .bingo-card .grid .cell input {
@@ -449,6 +453,9 @@ ion-toolbar {
   justify-content: center;
   align-items: center;
   min-height: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .mini-bingo-card .cell.active {
