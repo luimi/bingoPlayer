@@ -25,7 +25,7 @@ export const canvasPreview = (canvas: HTMLCanvasElement, image: HTMLImageElement
     const rotateRads = 0 * Math.PI / 180
     const centerX = image.naturalWidth / 2
     const centerY = image.naturalHeight / 2
-
+    console.log("data", "scalex", scaleX, "scaley", scaleY, "pixelratio", pixelRatio, "cropw", crop.width, "croph", crop.height, "cropx", cropX, "cropy", cropY, "centerx",centerX, "centery",centerY)
     ctx.save()
 
     // 5) Move the crop origin to the canvas origin (0,0)
@@ -57,12 +57,28 @@ export const getBlob = async (image: HTMLImageElement, canvas: HTMLCanvasElement
     if (!image || !canvas || !crop) {
         throw new Error('Crop canvas does not exist')
     }
+
     const scaleX = image.naturalWidth / image.width
     const scaleY = image.naturalHeight / image.height
 
+    let scaledWidth = crop.width * scaleX
+    let scaledHeight = crop.height * scaleY
+
+    const MAX_SIZE = 500
+
+    if (scaledWidth > MAX_SIZE || scaledHeight > MAX_SIZE) {
+        if (scaledWidth < scaledHeight) {
+            scaledHeight = scaledHeight * (MAX_SIZE / scaledWidth)
+            scaledWidth = MAX_SIZE
+        } else {
+            scaledWidth = scaledWidth * (MAX_SIZE / scaledHeight)
+            scaledHeight = MAX_SIZE
+        }
+    }
+
     const offscreen = new OffscreenCanvas(
-        crop.width * scaleX,
-        crop.height * scaleY,
+        scaledWidth,
+        scaledHeight,
     )
     const ctx = offscreen.getContext('2d')
     if (!ctx) {
@@ -77,8 +93,8 @@ export const getBlob = async (image: HTMLImageElement, canvas: HTMLCanvasElement
         canvas.height,
         0,
         0,
-        offscreen.width,
-        offscreen.height,
+        scaledWidth,
+        scaledHeight,
     )
     
     const blob = await offscreen.convertToBlob({
