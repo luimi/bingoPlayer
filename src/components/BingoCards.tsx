@@ -32,11 +32,14 @@ const BingoCards: React.FC<ComponentProps> = () => {
 
     const resolveScan = async (e: any) => {
         setLoading(true);
-
+        let newCards : any;
         await KeepAwake.keepAwake();
-        const newCards = await getScan(e);
-        await KeepAwake.allowSleep();
 
+        try {
+            newCards = await getScan(e);
+        }catch (e) {}
+        
+        await KeepAwake.allowSleep();
         setLoading(false);
         if (newCards && newCards.success) {
             setCards(newCards.data)
