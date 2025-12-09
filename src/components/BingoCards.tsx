@@ -14,6 +14,7 @@ import { getScan, getStatus as getServerStatus } from "../utils/serverController
 import CropModal from "./Crop";
 import { InterstitialAd } from "@capgo/capacitor-admob";
 import { Capacitor } from "@capacitor/core";
+import { KeepAwake } from '@capacitor-community/keep-awake';
 
 interface ComponentProps { }
 const BingoCards: React.FC<ComponentProps> = () => {
@@ -32,7 +33,9 @@ const BingoCards: React.FC<ComponentProps> = () => {
     const resolveScan = async (e: any) => {
         setLoading(true);
 
-        const newCards = await getScan(e)
+        await KeepAwake.keepAwake();
+        const newCards = await getScan(e);
+        await KeepAwake.allowSleep();
 
         setLoading(false);
         if (newCards && newCards.success) {
