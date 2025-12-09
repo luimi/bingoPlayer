@@ -18,7 +18,9 @@
     },
     "bingoCards": {
         "error": {
-            "cardsWithAI": "Karteninformationen konnten nicht verarbeitet werden"
+            "cardsWithAI": "Karteninformationen konnten nicht verarbeitet werden",
+            "server": "Verbindung zum Server konnte nicht hergestellt werden. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+            "unavailable": "Wir haben das Scan-Limit für heute erreicht, aber Sie können weiterhin Karten manuell hinzufügen."
         },
         "cards": "Karten"
     },

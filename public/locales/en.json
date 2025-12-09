@@ -18,7 +18,9 @@
     },
     "bingoCards": {
         "error": {
-            "cardsWithAI": "Could not process card information"
+            "cardsWithAI": "Could not process card information",
+            "server": "Could not connect to the server, please check your internet connection and try again.",
+            "unavailable": "We've reached the scan limit for today, but you can continue adding cards manually."
         },
         "cards": "Cards"
     },

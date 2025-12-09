@@ -18,7 +18,9 @@
     },
     "bingoCards": {
         "error": {
-            "cardsWithAI": "Impossible de traiter les informations des cartes"
+            "cardsWithAI": "Impossible de traiter les informations des cartes",
+            "server": "Impossible de se connecter au serveur, veuillez vérifier votre connexion Internet et réessayer.",
+            "unavailable": "Nous avons atteint la limite de scan pour aujourd'hui, mais vous pouvez continuer à ajouter des cartes manuellement."
         },
         "cards": "Cartes"
     },

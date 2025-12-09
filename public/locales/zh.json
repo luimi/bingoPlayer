@@ -18,7 +18,9 @@
     },
     "bingoCards": {
         "error": {
-            "cardsWithAI": "无法处理卡片信息"
+            "cardsWithAI": "无法处理卡片信息",
+            "server": "无法连接到服务器，请检查您的互联网连接并重试。",
+            "unavailable": "我们已达到今天的扫描限制，但您可以继续手动添加卡片。"
         },
         "cards": "卡片"
     },

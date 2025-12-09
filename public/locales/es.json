@@ -18,7 +18,9 @@
     },
     "bingoCards": {
         "error": {
-            "cardsWithAI": "No se pudo procesar la información de los cartones"
+            "cardsWithAI": "No se pudo procesar la información de los cartones",
+            "server": "No se pudo conectar al servidor, por favor verifica tu conexión a internet e intenta de nuevo.",
+            "unavailable": "Hemos alcanzado el límite de escaneo por hoy, pero puedes continuar añadiendo tarjetas manualmente."
         },
         "cards": "Cartones"
     },

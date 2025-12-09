@@ -18,7 +18,9 @@
     },
     "bingoCards": {
         "error": {
-            "cardsWithAI": "Não foi possível processar as informações dos cartões"
+            "cardsWithAI": "Não foi possível processar as informações dos cartões",
+            "server": "Não foi possível conectar ao servidor. Por favor, verifique sua conexão com a internet e tente novamente.",
+            "unavailable": "Atingimos o limite de digitalização para hoje, mas você pode continuar adicionando cartões manualmente."
         },
         "cards": "Cartões"
     },
