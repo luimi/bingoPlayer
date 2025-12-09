@@ -2,7 +2,7 @@ import { IonCol, IonGrid, IonIcon, IonRow, IonSpinner, useIonAlert, useIonRouter
 import { useBingoContext } from "../contexts/BingoContext";
 import { Link } from "react-router-dom";
 import { add, addCircleOutline, camera, informationCircle, warningOutline } from "ionicons/icons";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { setCard, setCards } from "../utils/BingoController";
 import MiniBingoCard from "./MiniBingoCard";
 import ItemNew from "./ItemNew";
@@ -10,7 +10,7 @@ import '../utils/I18n';
 import { useTranslation } from "react-i18next";
 import { gaEvent } from "../utils/analytics";
 import Scan from "./Scan";
-import { getScan, getStatus } from "../utils/serverController";
+import { getScan, getStatus as getServerStatus } from "../utils/serverController";
 import CropModal from "./Crop";
 import { InterstitialAd } from "@capgo/capacitor-admob";
 import { Capacitor } from "@capacitor/core";
@@ -22,7 +22,12 @@ const BingoCards: React.FC<ComponentProps> = () => {
     const [present] = useIonToast();
     const scanRef = useRef<HTMLInputElement>(null)
     const [loading, setLoading] = useState(false)
+    const [status, setStatus] = useState<any>(null)
     const router = useIonRouter();
+
+    useEffect(() => {
+        getStatus()
+    }, [])
 
     const resolveScan = async (e: any) => {
         setLoading(true);
@@ -34,6 +39,7 @@ const BingoCards: React.FC<ComponentProps> = () => {
             setCards(newCards.data)
             gaEvent(`scan-${newCards.length}`)
             showAd();
+            getStatus();
         } else {
             present({
                 message: t("bingoCards.error.cardsWithAI"),
@@ -54,6 +60,14 @@ const BingoCards: React.FC<ComponentProps> = () => {
         await interstitial.show();
     }
 
+    const getStatus = async () => {
+        if (loading) return;
+        setLoading(true);
+        try {
+            setStatus(await getServerStatus());
+        } catch (e) { }
+        setLoading(false);
+    }
 
     return (
         <IonGrid>
@@ -73,28 +87,28 @@ const BingoCards: React.FC<ComponentProps> = () => {
                         },
                         {
                             icon: <>{loading ? <IonSpinner></IonSpinner> : <IonIcon icon={camera} />}</>,
-                            action: async () => {
-                                try {
-                                    const result = await getStatus()
-                                    if (result.status) scanRef.current?.click()
-                                    else present({
+                            action: () => {
+                                if (loading) return;
+                                if (status && status.status) {
+                                    scanRef.current?.click();
+                                } else if (status && !status.status) {
+                                    present({
                                         message: t("bingoCards.error.unavailable"),
                                         duration: 5000,
                                         position: 'top',
                                         color: 'warning',
                                         icon: informationCircle
-                                    })
-                                } catch (e) {
+                                    });
+                                } else {
                                     present({
                                         message: t("bingoCards.error.server"),
                                         duration: 5000,
                                         position: 'top',
                                         color: 'warning',
                                         icon: informationCircle
-                                    })
+                                    });
+                                    getStatus()
                                 }
-
-
                             }
                         }
                     ]} />
