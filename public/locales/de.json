@@ -64,5 +64,11 @@
     },
     "crop": {
         "title": "Bild zuschneiden"
+    },
+    "tips": {
+      "title": "Tipps",
+      "step1": "Nehmen Sie ein Foto auf, das nur die Bingokarten enthält.",
+      "step2": "Richten Sie alle Karten vor der Aufnahme aus und ordnen Sie sie an.",
+      "step3": "Halten Sie die App geöffnet und das Telefon entsperrt, während die Karten verarbeitet werden."
     }
 }

@@ -64,5 +64,11 @@
     },
     "crop": {
         "title": "Recadrer l'Image"
+    },
+    "tips": {
+      "title": "Conseils",
+      "step1": "Capturez une photo qui ne contient que les cartes de bingo.",
+      "step2": "Alignez et organisez toutes les cartes avant la capture.",
+      "step3": "Gardez l'application ouverte et le téléphone déverrouillé pendant le traitement des cartes."
     }
 }

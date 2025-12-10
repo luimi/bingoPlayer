@@ -64,5 +64,11 @@
     },
     "crop": {
         "title": "Cortar Imagem"
+    },
+    "tips": {
+      "title": "Dicas",
+      "step1": "Capture uma foto que contenha apenas os cartões de bingo.",
+      "step2": "Alinhe e organize todos os cartões antes da captura.",
+      "step3": "Mantenha o aplicativo aberto e o telefone desbloqueado enquanto os cartões estão sendo processados."
     }
 }

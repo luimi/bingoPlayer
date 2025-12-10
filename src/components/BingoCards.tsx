@@ -15,6 +15,7 @@ import CropModal from "./Crop";
 import { InterstitialAd } from "@capgo/capacitor-admob";
 import { Capacitor } from "@capacitor/core";
 import { KeepAwake } from '@capacitor-community/keep-awake';
+import Tips from "./Tips";
 
 interface ComponentProps { }
 const BingoCards: React.FC<ComponentProps> = () => {
@@ -24,6 +25,7 @@ const BingoCards: React.FC<ComponentProps> = () => {
     const scanRef = useRef<HTMLInputElement>(null)
     const [loading, setLoading] = useState(false)
     const [status, setStatus] = useState<any>(null)
+    const [showTips, setShowTips] = useState<boolean>(false)
     const router = useIonRouter();
 
     useEffect(() => {
@@ -47,6 +49,7 @@ const BingoCards: React.FC<ComponentProps> = () => {
             showAd();
             getStatus();
         } else {
+            setShowTips(true)
             present({
                 message: t("bingoCards.error.cardsWithAI"),
                 duration: 5000,
@@ -54,6 +57,7 @@ const BingoCards: React.FC<ComponentProps> = () => {
                 color: 'danger',
                 icon: warningOutline
             })
+
         }
     }
 
@@ -122,6 +126,7 @@ const BingoCards: React.FC<ComponentProps> = () => {
                 </IonCol>
             </IonRow>
             <input type="file" accept="image/*" className="ion-hide" ref={scanRef} capture="environment" onChange={resolveScan} />
+            <Tips isOpen={showTips} dismiss={() => setShowTips(false)} />
         </IonGrid>
     );
 };
