@@ -45,7 +45,8 @@ const BingoCards: React.FC<ComponentProps> = () => {
         setLoading(false);
         if (newCards && newCards.success) {
             setCards(newCards.data)
-            gaEvent(`scan-${newCards.length}`)
+            console.log("newCards", newCards)
+            gaEvent(`scan-${newCards.data.length}`)
             showAd();
             getStatus();
         } else {
